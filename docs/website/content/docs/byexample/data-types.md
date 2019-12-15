@@ -41,7 +41,7 @@ Segs = [[
 
       {CodeEmpty= false,CodeLeading= true,CodeRun= false,CodeRendered="""<pre class="chroma">    
     <span class="p">!</span><span class="kd">type</span> <span class="nx">ErrorResponse</span><span class="p">:</span>
-        <span class="nx">status</span> <span class="p">&lt;:</span> <span class="kt">string</span></pre>""",DocsRendered= """<p>Use the <code>!alias</code> keyword to alias to another name</p>
+        <span class="nx">status</span> <span class="p">&lt;:</span> <span class="kt">string</span></pre>""",DocsRendered= """<p>Use the <code>!alias</code> keyword to alias to another identifier</p>
 """, CodeForJs = """    
     !type ErrorResponse:
         status <: string

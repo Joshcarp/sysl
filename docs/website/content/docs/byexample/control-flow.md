@@ -23,13 +23,11 @@ Segs = [[
       {CodeEmpty= false,CodeLeading= true,CodeRun= true,CodeRendered="""<pre class="chroma">  <span class="p">!</span><span class="kd">type</span> <span class="nx">ResourceNotFoundError</span><span class="p">:</span>
     <span class="nx">status</span> <span class="p">&lt;:</span> <span class="kt">string</span> 
   <span class="o">/</span><span class="nx">todos</span><span class="p">:</span>
-    
     <span class="o">/</span><span class="p">{</span><span class="nx">id</span><span class="p">&lt;:</span><span class="kt">int</span><span class="p">}:</span>
       <span class="nx">GET</span><span class="p">:</span></pre>""",DocsRendered= """<p>Here we can use if (or IF) and specify conditional returns based on the https status codes</p>
 """, CodeForJs = """  !type ResourceNotFoundError:
     status <: string 
   /todos:
-    
     /{id<:int}:
       GET:
 """},
@@ -53,7 +51,7 @@ Segs = [[
       {CodeEmpty= true,CodeLeading= true,CodeRun= false,CodeRendered="""""",DocsRendered= """<p>By creating a sequence diagram we can see that the conditional statements are rendered aswell</p>
 """, CodeForJs = """"""},
 
-      {CodeEmpty= false,CodeLeading= false,CodeRun= true,CodeRendered="""<pre class="chroma"><span class="nx">sysl</span> <span class="nx">sd</span> <span class="o">-</span><span class="nx">o</span> <span class="s">&#34;project.png&#34;</span> <span class="o">-</span><span class="nx">s</span> <span class="s">&#34;Foo &lt;- todos&#34;</span> <span class="nx">project</span><span class="p">.</span><span class="nx">sysl</span></pre>""",DocsRendered= """""", CodeForJs = """"""},
+      {CodeEmpty= false,CodeLeading= false,CodeRun= true,CodeRendered="""<pre class="chroma"><span class="nx">sysl</span> <span class="nx">sd</span> <span class="o">-</span><span class="nx">o</span> <span class="s">&#34;project.png&#34;</span> <span class="o">-</span><span class="nx">s</span> <span class="s">&#34;Foo &lt;- /todos&#34;</span> <span class="nx">project</span><span class="p">.</span><span class="nx">sysl</span></pre>""",DocsRendered= """""", CodeForJs = """"""},
 
 ],
 

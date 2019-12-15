@@ -1,15 +1,16 @@
 # In this example will use a simple system and start using the sysl command to generate diagrams.
 
-
 Project:
+
+    # This is a "root level application" We can name it or leave it blank, at the moment we don't need to use it, so we can substitute with an _ 
     _:
+        Server
         App
-        
-
+Server:
+    !type id:
+        id <: int
 App:
-    !type Order:
-        order_id <: int
-
-    !type Customer:
-        customer_id <: int
-        orders <: set of Order
+    !type User:
+        # Here we define that this id refers to another type defined in the Server Application
+        id <: Server.id
+        

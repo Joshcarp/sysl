@@ -6,6 +6,7 @@ Project [seqtitle="DataModel"]:
 
 RelModel:
     !table Employee:
+        # ~ Are patterns HTTP body post would be [~body] or something; giving more information
         employeeId <: int [~pk, ~autoinc]
         name <: string?
         dob <: date?
