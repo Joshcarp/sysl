@@ -6,7 +6,7 @@ sysl sd -o "project.png" -s "MobileApp <- Login" project.sysl
 
 # `-o` is the output file
 
-# `-s` specifies a starting endpoint for the sequence diagram to initiate
+# `-s "MobileApp <- Login" specifies this is the endpoint to start the sequence diagram at
 
 #  `project.sysl` is the input sysl file
 
