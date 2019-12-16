@@ -48,7 +48,7 @@ require (
 	github.com/pelletier/go-toml v1.6.0 // indirect
 	github.com/pkg/errors v0.8.1
 	github.com/rogpeppe/go-internal v1.5.0 // indirect
-	github.com/rubenv/pygmentize v0.0.0-20150323185546-0a6438ede9e4
+	github.com/rubenv/pygmentize v0.0.0-20150323185546-0a6438ede9e4 // indirect
 	github.com/russross/blackfriday v2.0.0+incompatible
 	github.com/shurcooL/sanitized_anchor_name v1.0.0 // indirect
 	github.com/sirupsen/logrus v1.4.2
