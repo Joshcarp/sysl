@@ -6,7 +6,6 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
-	"os/exec"
 	"path/filepath"
 	"regexp"
 	"strconv"
@@ -59,27 +58,6 @@ func copyFile(src, dst string) {
 	check(err)
 }
 
-func pipe(bin string, arg []string, src string) []byte {
-	fmt.Println(bin, arg)
-
-	cmd := exec.Command(bin, arg...)
-	in, err := cmd.StdinPipe()
-	check(err)
-	out, err := cmd.StdoutPipe()
-	check(err)
-	err = cmd.Start()
-	check(err)
-	_, err = in.Write([]byte(src))
-	check(err)
-	err = in.Close()
-	check(err)
-	bytes, err := ioutil.ReadAll(out)
-	check(err)
-	err = cmd.Wait()
-	check(err)
-	return bytes
-}
-
 func sha1Sum(s string) string {
 	h := sha1.New()
 	h.Write([]byte(s))
@@ -93,12 +71,9 @@ func mustReadFile(path string) string {
 	return string(bytes)
 }
 
-func cachedPygmentize(lex string, src string) string {
+func cahcheChroma(lex string, src string) string {
 	ensureDir(cacheDir)
-	arg := []string{"-l", lex, "-f", "html"}
-	cachePath := cacheDir + "/pygmentize-" + strings.Join(arg, "-") + "-" + sha1Sum(src)
-	fmt.Println(arg)
-
+	cachePath := cacheDir + "/" + sha1Sum(src)
 	cacheBytes, cacheErr := ioutil.ReadFile(cachePath)
 	if cacheErr == nil {
 		return string(cacheBytes)
@@ -241,7 +216,7 @@ func parseAndRenderSegs(sourcePath string) ([]*Seg, string) {
 			seg.DocsRendered = markdown(seg.Docs)
 		}
 		if seg.Code != "" {
-			seg.CodeRendered = cachedPygmentize(lexer, seg.Code)
+			seg.CodeRendered = cahcheChroma(lexer, seg.Code)
 
 			// adding the content to the js code for copying to the clipboard
 			if strings.HasSuffix(sourcePath, ".sysl") {
@@ -287,9 +262,6 @@ func parseExamples() []*Example {
 			example.Segs = make([][]*Seg, 0)
 			sourcePaths := mustGlob(exampleID + "/*")
 			for _, sourcePath := range sourcePaths {
-
-				println(sourcePath)
-
 				if ok, ext := isImageFile(sourcePath); ok {
 					destination := assetDir + "images/" + exampleID + strconv.Itoa(weight) + ext
 					copyFile(sourcePath, destination)
