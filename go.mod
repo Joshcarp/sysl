@@ -12,17 +12,21 @@ require (
 	github.com/alecthomas/chroma v0.7.0
 	github.com/alecthomas/template v0.0.0-20190718012654-fb15b899a751 // indirect
 	github.com/alecthomas/units v0.0.0-20190924025748-f65c72e2690d // indirect
-	github.com/antlr/antlr4 v0.0.0-20191011202612-ad2bd05285ca
+	github.com/antlr/antlr4 v0.0.0-20191215170310-4da24a261fa6
 	github.com/aws/aws-sdk-go v1.25.50 // indirect
 	github.com/bep/tmc v0.5.1 // indirect
 	github.com/cornelk/hashmap v1.0.1
 	github.com/dchest/siphash v1.2.1 // indirect
 	github.com/ghodss/yaml v1.0.0
+	github.com/go-openapi/analysis v0.19.7 // indirect
+	github.com/go-openapi/errors v0.19.3 // indirect
 	github.com/go-openapi/jsonreference v0.19.3 // indirect
-	github.com/go-openapi/loads v0.19.3
-	github.com/go-openapi/spec v0.19.3
-	github.com/go-openapi/swag v0.19.5
+	github.com/go-openapi/loads v0.19.4
+	github.com/go-openapi/spec v0.19.5
+	github.com/go-openapi/strfmt v0.19.4 // indirect
+	github.com/go-openapi/swag v0.19.6
 	github.com/gobuffalo/envy v1.8.1 // indirect
+	github.com/godoctor/godoctor v0.0.0-20181123222458-69df17f3a6f6 // indirect
 	github.com/gohugoio/hugo v0.60.1 // indirect
 	github.com/golang/groupcache v0.0.0-20191027212112-611e8accdfc9 // indirect
 	github.com/golang/protobuf v1.3.2
@@ -54,9 +58,10 @@ require (
 	github.com/spf13/viper v1.6.1 // indirect
 	github.com/stretchr/testify v1.4.0
 	github.com/tdewolff/parse/v2 v2.4.1 // indirect
+	github.com/willf/bitset v1.1.10 // indirect
 	github.com/yuin/goldmark v1.1.14 // indirect
 	github.com/yuin/goldmark-highlighting v0.0.0-20191202084645-78f32c8dd6d5 // indirect
-	go.mongodb.org/mongo-driver v1.1.2 // indirect
+	go.mongodb.org/mongo-driver v1.2.0 // indirect
 	go.opencensus.io v0.22.2 // indirect
 	gocloud.dev v0.18.0 // indirect
 	golang.org/x/exp v0.0.0-20191129062945-2f5052295587 // indirect
