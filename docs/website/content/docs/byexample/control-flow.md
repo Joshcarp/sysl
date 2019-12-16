@@ -6,9 +6,6 @@ description= ""
 layout= "byexample"
 weight = 5
 topic = "Basics"
-Images = [
-  
-]
 
 ID = "control-flow"
 Segs = [[
@@ -18,7 +15,7 @@ Segs = [[
     <span class="nx">status</span> <span class="p">&lt;:</span> <span class="kt">string</span></pre>""",DocsRendered= """""", CodeForJs = """Foo:
   !type ErrorResponse:
     status <: string
-"""},
+""",Image = ""},
 
       {CodeEmpty= false,CodeLeading= true,CodeRun= true,CodeRendered="""<pre class="chroma">  <span class="p">!</span><span class="kd">type</span> <span class="nx">ResourceNotFoundError</span><span class="p">:</span>
     <span class="nx">status</span> <span class="p">&lt;:</span> <span class="kt">string</span> 
@@ -30,7 +27,7 @@ Segs = [[
   /todos:
     /{id<:int}:
       GET:
-"""},
+""",Image = ""},
 
       {CodeEmpty= false,CodeLeading= false,CodeRun= false,CodeRendered="""<pre class="chroma">        <span class="k">if</span> <span class="nx">notfound</span><span class="p">:</span>
           <span class="k">return</span> <span class="mi">404</span> <span class="p">&lt;:</span> <span class="nx">ResourceNotFoundError</span>
@@ -43,15 +40,17 @@ Segs = [[
           return 500 <: ErrorResponse
         else:    
           return 200 <: Todo 
-"""},
+""",Image = ""},
+
 
 ],
 [
   
       {CodeEmpty= true,CodeLeading= true,CodeRun= false,CodeRendered="""""",DocsRendered= """<p>By creating a sequence diagram we can see that the conditional statements are rendered aswell</p>
-""", CodeForJs = """"""},
+""", CodeForJs = """""",Image = ""},
 
-      {CodeEmpty= false,CodeLeading= false,CodeRun= true,CodeRendered="""<pre class="chroma"><span class="nx">sysl</span> <span class="nx">sd</span> <span class="o">-</span><span class="nx">o</span> <span class="s">&#34;project.png&#34;</span> <span class="o">-</span><span class="nx">s</span> <span class="s">&#34;Foo &lt;- /todos&#34;</span> <span class="nx">project</span><span class="p">.</span><span class="nx">sysl</span></pre>""",DocsRendered= """""", CodeForJs = """"""},
+      {CodeEmpty= false,CodeLeading= false,CodeRun= true,CodeRendered="""<pre class="chroma"><span class="nx">sysl</span> <span class="nx">sd</span> <span class="o">-</span><span class="nx">o</span> <span class="s">&#34;project.png&#34;</span> <span class="o">-</span><span class="nx">s</span> <span class="s">&#34;Foo &lt;- /todos&#34;</span> <span class="mi">1</span><span class="nx">_project</span><span class="p">.</span><span class="nx">sysl</span></pre>""",DocsRendered= """""", CodeForJs = """""",Image = ""},
+
 
 ],
 

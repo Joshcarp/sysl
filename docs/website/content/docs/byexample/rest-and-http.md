@@ -6,9 +6,6 @@ description= ""
 layout= "byexample"
 weight = 9
 topic = "Rest Endpoints"
-Images = [
-  
-]
 
 ID = "rest-and-http"
 Segs = [[
@@ -20,7 +17,8 @@ Segs = [[
     /endpoint:
         POST (newPost <: string [~body]):
             return string
-"""},
+""",Image = ""},
+
 
 ],
 

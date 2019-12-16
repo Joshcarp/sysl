@@ -2,7 +2,7 @@
 export SYSL_PLANTUML=http://www.plantuml.com/plantuml
 
 # Now run the sysl sd (sequence diagram) command
-sysl ints -o project.png --project Project project.sysl
+sysl ints -o project.png --project Project 1_project.sysl
 
 # `-o` is the output file
 
