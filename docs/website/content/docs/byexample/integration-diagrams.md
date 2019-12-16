@@ -4,7 +4,7 @@ title= "Integration Diagrams"
 draft= false
 description= ""
 layout= "byexample"
-weight = 7
+weight = 8
 topic = "Diagrams"
 
 ID = "integration-diagrams"
@@ -72,7 +72,7 @@ System2:
 ],
 [
   
-      {CodeEmpty= false,CodeLeading= false,CodeRun= false,CodeRendered="""""",DocsRendered= """""", CodeForJs = """""",Image = "/assets/byexample/images/integration-diagrams6.svg"},
+      {CodeEmpty= false,CodeLeading= false,CodeRun= false,CodeRendered="""""",DocsRendered= """""", CodeForJs = """""",Image = "/assets/byexample/images/integration-diagrams7.svg"},
 
 
 ],

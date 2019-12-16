@@ -245,6 +245,10 @@ func parseExamples() []*Example {
 	var examples []*Example
 	ordering := unmarshalYaml(orderingfile)
 	weight := 0
+	err := os.RemoveAll(assetDir + "images")
+	check(err)
+	err = os.MkdirAll(assetDir+"images", 0755)
+	check(err)
 	for topic, tutorial := range ordering {
 		for _, exampleName := range tutorial {
 			weight++

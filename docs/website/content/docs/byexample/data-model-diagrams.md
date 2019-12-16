@@ -4,7 +4,7 @@ title= "Data Model Diagrams"
 draft= false
 description= ""
 layout= "byexample"
-weight = 8
+weight = 9
 topic = "Diagrams"
 
 ID = "data-model-diagrams"
@@ -90,7 +90,7 @@ App:
 ],
 [
   
-      {CodeEmpty= false,CodeLeading= false,CodeRun= false,CodeRendered="""""",DocsRendered= """""", CodeForJs = """""",Image = "/assets/byexample/images/data-model-diagrams7.svg"},
+      {CodeEmpty= false,CodeLeading= false,CodeRun= false,CodeRendered="""""",DocsRendered= """""", CodeForJs = """""",Image = "/assets/byexample/images/data-model-diagrams8.svg"},
 
 
 ],
@@ -107,13 +107,13 @@ App:
 ],
 [
   
-      {CodeEmpty= false,CodeLeading= false,CodeRun= false,CodeRendered="""""",DocsRendered= """""", CodeForJs = """""",Image = "/assets/byexample/images/data-model-diagrams7.svg"},
+      {CodeEmpty= false,CodeLeading= false,CodeRun= false,CodeRendered="""""",DocsRendered= """""", CodeForJs = """""",Image = "/assets/byexample/images/data-model-diagrams8.svg"},
 
 
 ],
 [
   
-      {CodeEmpty= false,CodeLeading= false,CodeRun= false,CodeRendered="""""",DocsRendered= """""", CodeForJs = """""",Image = "/assets/byexample/images/data-model-diagrams7.svg"},
+      {CodeEmpty= false,CodeLeading= false,CodeRun= false,CodeRendered="""""",DocsRendered= """""", CodeForJs = """""",Image = "/assets/byexample/images/data-model-diagrams8.svg"},
 
 
 ],

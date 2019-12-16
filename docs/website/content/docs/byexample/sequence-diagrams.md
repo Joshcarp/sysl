@@ -4,7 +4,7 @@ title= "Sequence Diagrams"
 draft= false
 description= ""
 layout= "byexample"
-weight = 6
+weight = 7
 topic = "Diagrams"
 
 ID = "sequence-diagrams"
@@ -73,7 +73,7 @@ Segs = [[
 ],
 [
   
-      {CodeEmpty= false,CodeLeading= false,CodeRun= false,CodeRendered="""""",DocsRendered= """""", CodeForJs = """""",Image = "/assets/byexample/images/sequence-diagrams5.svg"},
+      {CodeEmpty= false,CodeLeading= false,CodeRun= false,CodeRendered="""""",DocsRendered= """""", CodeForJs = """""",Image = "/assets/byexample/images/sequence-diagrams6.svg"},
 
 
 ],
