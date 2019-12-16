@@ -8,7 +8,7 @@ import (
 	"testing"
 
 	"github.com/anz-bank/sysl/pkg/syslutil"
-
+	"github.com/anz-bank/sysl/cmd/command"
 	"github.com/anz-bank/sysl/pkg/parse"
 	"github.com/sirupsen/logrus"
 	"github.com/sirupsen/logrus/hooks/test"
@@ -661,7 +661,7 @@ func TestSwaggerExportCurrentDir(t *testing.T) {
 	logger, _ := test.NewNullLogger()
 	memFs, fs := syslutil.WriteToMemOverlayFs("/")
 	main2([]string{"sysl", "export", "-o", "SIMPLE_SWAGGER_EXAMPLE.yaml", "-a", "testapp",
-		syslDir + "exporter/test-data/SIMPLE_SWAGGER_EXAMPLE.sysl"}, fs, logger, main3)
+		command.syslDir + "exporter/test-data/SIMPLE_SWAGGER_EXAMPLE.sysl"}, fs, logger, main3)
 	syslutil.AssertFsHasExactly(t, memFs, "/SIMPLE_SWAGGER_EXAMPLE.yaml")
 }
 
@@ -671,7 +671,7 @@ func TestSwaggerExportTargetDir(t *testing.T) {
 	tmp1, err := ioutil.TempDir("", "tmp1")
 	assert.Nil(t, err)
 	main2([]string{"sysl", "export", "-o", tmp1 + "/SIMPLE_SWAGGER_EXAMPLE1.yaml", "-a", "testapp",
-		syslDir + "exporter/test-data/SIMPLE_SWAGGER_EXAMPLE.sysl"}, afero.NewOsFs(), logger, main3)
+		command.syslDir + "exporter/test-data/SIMPLE_SWAGGER_EXAMPLE.sysl"}, afero.NewOsFs(), logger, main3)
 	_, err = ioutil.ReadFile(tmp1 + "/SIMPLE_SWAGGER_EXAMPLE1.yaml")
 	assert.Nil(t, err)
 	os.RemoveAll(tmp1)

@@ -78,10 +78,10 @@ func (pc *projectConfiguration) configureProject(root, module string, fs afero.F
 		pc.module = module
 		if rootMarkerExists {
 			logger.Warningf("%s found in %s but will use %s instead",
-				syslRootMarker, syslRootPath, pc.root)
+				command.syslRootMarker, syslRootPath, pc.root)
 		} else {
 			logger.Warningf("%s is not defined but root flag is defined in %s",
-				syslRootMarker, pc.root)
+				command.syslRootMarker, pc.root)
 		}
 	} else {
 		if rootMarkerExists {
@@ -147,7 +147,7 @@ func main3(args []string, fs afero.Fs, logger *logrus.Logger) error {
 
 	(&debugTypeData{}).add(syslCmd)
 
-	runner := cmdRunner{}
+	runner := command.cmdRunner{}
 	if err := runner.Configure(syslCmd); err != nil {
 		return err
 	}
