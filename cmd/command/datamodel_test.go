@@ -37,7 +37,7 @@ func TestDoGenerateDataDiagrams(t *testing.T) {
 	argsData := []string{"sysl", "data", "-o", args.output, "-j", args.project, args.modules}
 	syslCmd := kingpin.New("sysl", "System Modelling Language Toolkit")
 
-	r := cmdRunner{}
+	r := CmdRunner{}
 	assert.NoError(t, r.Configure(syslCmd))
 	selectedCommand, err := syslCmd.Parse(argsData[1:])
 	assert.Nil(t, err, "Cmd line parse failed for sysl data")

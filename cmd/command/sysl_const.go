@@ -1,4 +1,4 @@
 package command
 
-const syslDir = "../../pkg/"
-const projDir = "../../"
+const SyslDir = "../../pkg/"
+const ProjDir = "../../"

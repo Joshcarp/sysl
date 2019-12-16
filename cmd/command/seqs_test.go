@@ -26,7 +26,7 @@ func TestGenerateSequenceDiag(t *testing.T) {
 
 	logger, _ := test.NewNullLogger()
 	m, err := parse.NewParser().Parse("demo/simple/sysl-sd.sysl",
-		syslutil.NewChrootFs(afero.NewOsFs(), projDir))
+		syslutil.NewChrootFs(afero.NewOsFs(), ProjDir))
 	require.NoError(t, err)
 	l := &labeler{}
 	p := &sequenceDiagParam{}
@@ -75,7 +75,7 @@ func TestGenerateSequenceDiag2(t *testing.T) {
 
 	logger, _ := test.NewNullLogger()
 	m, err := parse.NewParser().Parse("demo/simple/sysl-sd2.sysl",
-		syslutil.NewChrootFs(afero.NewOsFs(), projDir))
+		syslutil.NewChrootFs(afero.NewOsFs(), ProjDir))
 	require.NoError(t, err)
 	l := &labeler{}
 	p := &sequenceDiagParam{}
@@ -239,7 +239,7 @@ func TestLoadAppReturnError(t *testing.T) {
 	t.Parallel()
 
 	args := loadAppArgs{
-		"projDirdemo/simple/", "",
+		"ProjDirdemo/simple/", "",
 	}
 	_, fs := syslutil.WriteToMemOverlayFs(args.root)
 	logger, _ := test.NewNullLogger()
@@ -496,7 +496,7 @@ func TestDoGenerateSequenceDiagrams(t *testing.T) {
 	}
 	argsData := []string{"sysl", "sd", "-o", args.output, "-a", args.apps[0], args.modules}
 	sysl := kingpin.New("sysl", "System Modelling Language Toolkit")
-	r := cmdRunner{}
+	r := CmdRunner{}
 	assert.NoError(t, r.Configure(sysl))
 	selectedCommand, err := sysl.Parse(argsData[1:])
 	assert.Nil(t, err, "Cmd line parse failed for sysl sd")

@@ -7,9 +7,9 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/anz-bank/sysl/pkg/syslutil"
 	"github.com/anz-bank/sysl/cmd/command"
 	"github.com/anz-bank/sysl/pkg/parse"
+	"github.com/anz-bank/sysl/pkg/syslutil"
 	"github.com/sirupsen/logrus"
 	"github.com/sirupsen/logrus/hooks/test"
 	"github.com/spf13/afero"
@@ -63,7 +63,7 @@ func runMain2(t *testing.T, fs afero.Fs, args []string, golden string) {
 
 func testMain2WithSyslRootMarker(t *testing.T, args []string, golden string) {
 	_, fs := syslutil.WriteToMemOverlayFs("/")
-	dir := syslutil.MustAbsolute(t, fmt.Sprintf("tests/%s", syslRootMarker))
+	dir := syslutil.MustAbsolute(t, fmt.Sprintf("tests/%s", command.SyslRootMarker))
 	require.NoError(t, fs.MkdirAll(dir, os.ModeDir))
 	runMain2(t, fs, args, golden)
 }
@@ -661,7 +661,7 @@ func TestSwaggerExportCurrentDir(t *testing.T) {
 	logger, _ := test.NewNullLogger()
 	memFs, fs := syslutil.WriteToMemOverlayFs("/")
 	main2([]string{"sysl", "export", "-o", "SIMPLE_SWAGGER_EXAMPLE.yaml", "-a", "testapp",
-		command.syslDir + "exporter/test-data/SIMPLE_SWAGGER_EXAMPLE.sysl"}, fs, logger, main3)
+		command.SyslDir + "exporter/test-data/SIMPLE_SWAGGER_EXAMPLE.sysl"}, fs, logger, main3)
 	syslutil.AssertFsHasExactly(t, memFs, "/SIMPLE_SWAGGER_EXAMPLE.yaml")
 }
 
@@ -671,7 +671,7 @@ func TestSwaggerExportTargetDir(t *testing.T) {
 	tmp1, err := ioutil.TempDir("", "tmp1")
 	assert.Nil(t, err)
 	main2([]string{"sysl", "export", "-o", tmp1 + "/SIMPLE_SWAGGER_EXAMPLE1.yaml", "-a", "testapp",
-		command.syslDir + "exporter/test-data/SIMPLE_SWAGGER_EXAMPLE.sysl"}, afero.NewOsFs(), logger, main3)
+		command.SyslDir + "exporter/test-data/SIMPLE_SWAGGER_EXAMPLE.sysl"}, afero.NewOsFs(), logger, main3)
 	_, err = ioutil.ReadFile(tmp1 + "/SIMPLE_SWAGGER_EXAMPLE1.yaml")
 	assert.Nil(t, err)
 	os.RemoveAll(tmp1)
@@ -683,7 +683,7 @@ func TestSwaggerExportJson(t *testing.T) {
 	tmp2, err := ioutil.TempDir("", "tmp2")
 	assert.Nil(t, err)
 	main2([]string{"sysl", "export", "-o", tmp2 + "/SIMPLE_SWAGGER_EXAMPLE2.json",
-		"-a", "testapp", syslDir + "exporter/test-data/SIMPLE_SWAGGER_EXAMPLE.sysl"}, afero.NewOsFs(), logger, main3)
+		"-a", "testapp", command.SyslDir + "exporter/test-data/SIMPLE_SWAGGER_EXAMPLE.sysl"}, afero.NewOsFs(), logger, main3)
 	_, err = ioutil.ReadFile(tmp2 + "/SIMPLE_SWAGGER_EXAMPLE2.json")
 	assert.Nil(t, err)
 	os.RemoveAll(tmp2)
@@ -694,7 +694,7 @@ func TestSwaggerExportInvalid(t *testing.T) {
 	logger, _ := test.NewNullLogger()
 	_, fs := syslutil.WriteToMemOverlayFs("/")
 	errInt := main2([]string{"sysl", "export", "-o", "SIMPLE_SWAGGER_EXAMPLE1.blah", "-a", "testapp",
-		syslDir + "exporter/test-data/SIMPLE_SWAGGER_EXAMPLE.sysl"}, fs, logger, main3)
+		command.SyslDir + "exporter/test-data/SIMPLE_SWAGGER_EXAMPLE.sysl"}, fs, logger, main3)
 	assert.True(t, errInt == 1)
 }
 
@@ -702,7 +702,7 @@ func TestSwaggerAppExportNoDir(t *testing.T) {
 	t.Parallel()
 	logger, _ := test.NewNullLogger()
 	main2([]string{"sysl", "export", "-o", "out/%(appname).yaml",
-		syslDir + "exporter/test-data/multiple/SIMPLE_SWAGGER_EXAMPLE_MULTIPLE.sysl"}, afero.NewOsFs(), logger, main3)
+		command.SyslDir + "exporter/test-data/multiple/SIMPLE_SWAGGER_EXAMPLE_MULTIPLE.sysl"}, afero.NewOsFs(), logger, main3)
 	for _, file := range []string{"out/single.yaml", "out/multiple.yaml"} {
 		_, err := ioutil.ReadFile(file)
 		assert.Nil(t, err)
@@ -716,7 +716,7 @@ func TestSwaggerAppExportDirExists(t *testing.T) {
 	tmp3, err := ioutil.TempDir("", "tmp3")
 	assert.Nil(t, err)
 	main2([]string{"sysl", "export", "-o", tmp3 + "/%(appname).yaml",
-		syslDir + "exporter/test-data/multiple/SIMPLE_SWAGGER_EXAMPLE_MULTIPLE.sysl"}, afero.NewOsFs(), logger, main3)
+		command.SyslDir + "exporter/test-data/multiple/SIMPLE_SWAGGER_EXAMPLE_MULTIPLE.sysl"}, afero.NewOsFs(), logger, main3)
 	for _, file := range []string{tmp3 + "/single.yaml", tmp3 + "/multiple.yaml"} {
 		_, err := ioutil.ReadFile(file)
 		assert.Nil(t, err)
@@ -728,9 +728,9 @@ func TestHandleProjectRoot(t *testing.T) {
 	successfulTest := folderStructure{
 		folders: []string{
 			"./SuccessfulTest/path/to/module",
-			fmt.Sprintf("./SuccessfulTest/%s", syslRootMarker),
+			fmt.Sprintf("./SuccessfulTest/%s", command.SyslRootMarker),
 			"./SuccessfulTest/path/to/another/module",
-			fmt.Sprintf("./SuccessfulTest/path/to/another/%s", syslRootMarker),
+			fmt.Sprintf("./SuccessfulTest/path/to/another/%s", command.SyslRootMarker),
 		},
 		files: []string{
 			"./SuccessfulTest/path/to/module/test.sysl",
@@ -751,7 +751,7 @@ func TestHandleProjectRoot(t *testing.T) {
 	definedRootFlagAndMarkerFound := folderStructure{
 		folders: []string{
 			"./DefinedRootAndSyslRootDefinedTest/path/to/module/",
-			fmt.Sprintf("./DefinedRootAndSyslRootDefinedTest/path/%s", syslRootMarker),
+			fmt.Sprintf("./DefinedRootAndSyslRootDefinedTest/path/%s", command.SyslRootMarker),
 		},
 		files: []string{
 			"./DefinedRootAndSyslRootDefinedTest/path/to/module/test.sysl",
@@ -862,13 +862,13 @@ func TestHandleProjectRoot(t *testing.T) {
 			fs := afero.NewMemMapFs()
 			syslutil.BuildFolderTest(t, fs, ts.structure.folders, ts.structure.files)
 
-			config := newProjectConfiguration()
-			err := config.configureProject(ts.root, ts.module, fs, logger)
+			config := command.NewProjectConfiguration()
+			err := config.ConfigureProject(ts.root, ts.module, fs, logger)
 
-			require.Equal(t, ts.rootFound, config.rootIsFound)
+			require.Equal(t, ts.rootFound, config.RootIsFound)
 			require.NoError(t, err)
-			require.Equal(t, ts.expectedRoot, config.root)
-			require.Equal(t, ts.getExpectedModule(t), config.module)
+			require.Equal(t, ts.expectedRoot, config.Root)
+			require.Equal(t, ts.getExpectedModule(t), config.Module)
 		})
 	}
 }
@@ -886,7 +886,7 @@ func TestCodegenGrammarImportDefOut(t *testing.T) {
 	logger, _ := test.NewNullLogger()
 	memFs, fs := syslutil.WriteToMemOverlayFs("/")
 	main2([]string{"sysl", "import", "-i",
-		syslDir + "importer/tests-grammar/simplerules.gen.g", "-a", "go"}, fs, logger, main3)
+		command.SyslDir + "importer/tests-grammar/simplerules.gen.g", "-a", "go"}, fs, logger, main3)
 	syslutil.AssertFsHasExactly(t, memFs, "/output.sysl")
 }
 
@@ -894,7 +894,7 @@ func TestCodegenGrammarImport(t *testing.T) {
 	t.Parallel()
 	logger, _ := test.NewNullLogger()
 	memFs, fs := syslutil.WriteToMemOverlayFs("/")
-	main2([]string{"sysl", "import", "-i", syslDir + "importer/tests-grammar/unions.gen.g",
+	main2([]string{"sysl", "import", "-i", command.SyslDir + "importer/tests-grammar/unions.gen.g",
 		"-o", "out.sysl", "-a", "go"}, fs, logger, main3)
 	syslutil.AssertFsHasExactly(t, memFs, "/out.sysl")
 }

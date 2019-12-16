@@ -34,7 +34,7 @@ func TestGenerateIntegrations(t *testing.T) {
 	t.Parallel()
 
 	m, err := parse.NewParser().Parse("demo/simple/sysl-ints.sysl",
-		syslutil.NewChrootFs(afero.NewOsFs(), projDir))
+		syslutil.NewChrootFs(afero.NewOsFs(), ProjDir))
 	require.NoError(t, err)
 	require.NotNil(t, m)
 
@@ -236,7 +236,7 @@ func TestDoGenerateIntegrations(t *testing.T) {
 	argsData := []string{"sysl", "ints", "-o", args.output, "-j", args.project, args.modules}
 	sysl := kingpin.New("sysl", "System Modelling Language Toolkit")
 
-	r := cmdRunner{}
+	r := CmdRunner{}
 	assert.NoError(t, r.Configure(sysl))
 	selectedCommand, err := sysl.Parse(argsData[1:])
 	assert.Nil(t, err, "Cmd line parse failed for sysl ints")

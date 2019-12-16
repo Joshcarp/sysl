@@ -2,25 +2,24 @@ package command
 
 import (
 	"errors"
-	"sort"
-	"strings"
-
 	sysl "github.com/anz-bank/sysl/pkg/sysl"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/afero"
 	"gopkg.in/alecthomas/kingpin.v2"
+	"sort"
+	"strings"
 )
 
-const syslRootMarker = ".sysl"
+const SyslRootMarker = ".sysl"
 
-type cmdRunner struct {
+type CmdRunner struct {
 	commands map[string]Command
 
 	Root   string
 	module string
 }
 
-func (r *cmdRunner) Run(which string, fs afero.Fs, logger *logrus.Logger) error {
+func (r *CmdRunner) Run(which string, fs afero.Fs, logger *logrus.Logger) error {
 	if cmd, ok := r.commands[which]; ok {
 		if cmd.Name() == which {
 			var mod *sysl.Module
@@ -39,7 +38,7 @@ func (r *cmdRunner) Run(which string, fs afero.Fs, logger *logrus.Logger) error 
 	return nil
 }
 
-func (r *cmdRunner) Configure(app *kingpin.Application) error {
+func (r *CmdRunner) Configure(app *kingpin.Application) error {
 	commands := []Command{
 		&protobuf{},
 		&intsCmd{},
