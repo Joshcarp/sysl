@@ -32,7 +32,7 @@ const templates = syslRoot + "docs/website/byexample/templates"
 const cacheDir = "./.tmp/gobyexample-cache"
 const orderingfile = "ordering.yaml"
 
-var imageFiles = []string{".png", ".svg"}
+var imageFiles = []string{".svg", ".svg"}
 
 func main() {
 	ensureDir(siteDir)
@@ -123,8 +123,6 @@ func whichLexer(path string) string {
 		return "sysl"
 	} else if strings.HasSuffix(path, ".sh") {
 		return "console"
-	} else if strings.HasSuffix(path, ".png") {
-		return "png"
 	}
 	panic("No lexer for " + path)
 }
@@ -264,6 +262,7 @@ func parseExamples() []*Example {
 			for _, sourcePath := range sourcePaths {
 				if ok, ext := isImageFile(sourcePath); ok {
 					destination := assetDir + "images/" + exampleID + strconv.Itoa(weight) + ext
+
 					copyFile(sourcePath, destination)
 
 					// This is the path that gets rendered in the markdown file
