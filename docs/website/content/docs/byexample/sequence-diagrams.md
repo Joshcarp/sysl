@@ -19,14 +19,18 @@ Segs = [[
 """, CodeForJs = """"""},
 
       {CodeEmpty= false,CodeLeading= true,CodeRun= true,CodeRendered="""<pre class="chroma"><span class="nx">MobileApp</span><span class="p">:</span>
-    <span class="nx">Login</span><span class="p">:</span>
-        <span class="nx">Server</span> <span class="o">&lt;-</span> <span class="nx">Login</span>
-    <span class="p">!</span><span class="kd">type</span> <span class="nx">LoginData</span><span class="p">:</span>
-        <span class="nx">username</span> <span class="p">&lt;:</span> <span class="kt">string</span>
-        <span class="nx">password</span> <span class="p">&lt;:</span> <span class="kt">string</span></pre>""",DocsRendered= """""", CodeForJs = """MobileApp:
+    <span class="nx">Login</span><span class="p">:</span></pre>""",DocsRendered= """""", CodeForJs = """MobileApp:
     Login:
-        Server <- Login
-    !type LoginData:
+"""},
+
+      {CodeEmpty= false,CodeLeading= true,CodeRun= false,CodeRendered="""<pre class="chroma">
+        <span class="nx">Server</span> <span class="o">&lt;-</span> <span class="nx">LoginRequest</span></pre>""",DocsRendered= """<p>Here it is defined that this &ldquo;Login&rdquo; endpoint calls the server endpoint &ldquo;LoginRequest&rdquo;</p>
+""", CodeForJs = """        Server <- LoginRequest
+"""},
+
+      {CodeEmpty= false,CodeLeading= true,CodeRun= false,CodeRendered="""<pre class="chroma">    <span class="p">!</span><span class="kd">type</span> <span class="nx">LoginData</span><span class="p">:</span>
+        <span class="nx">username</span> <span class="p">&lt;:</span> <span class="kt">string</span>
+        <span class="nx">password</span> <span class="p">&lt;:</span> <span class="kt">string</span></pre>""",DocsRendered= """""", CodeForJs = """    !type LoginData:
         username <: string
         password <: string
 """},
@@ -39,8 +43,10 @@ Segs = [[
       {CodeEmpty= false,CodeLeading= true,CodeRun= false,CodeRendered="""<pre class="chroma"><span class="nx">Server</span><span class="p">:</span></pre>""",DocsRendered= """""", CodeForJs = """Server:
 """},
 
-      {CodeEmpty= false,CodeLeading= false,CodeRun= false,CodeRendered="""<pre class="chroma">    <span class="nf">Login</span><span class="p">(</span><span class="nx">data</span> <span class="p">&lt;:</span> <span class="nx">MobileApp</span><span class="p">.</span><span class="nx">LoginData</span><span class="p">):</span>
-        <span class="k">return</span> <span class="nx">MobileApp</span><span class="p">.</span><span class="nx">LoginResponse</span></pre>""",DocsRendered= """""", CodeForJs = """    Login(data <: MobileApp.LoginData):
+      {CodeEmpty= false,CodeLeading= false,CodeRun= false,CodeRendered="""<pre class="chroma">
+    <span class="nf">LoginRequest</span><span class="p">(</span><span class="nx">data</span> <span class="p">&lt;:</span> <span class="nx">MobileApp</span><span class="p">.</span><span class="nx">LoginData</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nx">MobileApp</span><span class="p">.</span><span class="nx">LoginResponse</span></pre>""",DocsRendered= """<p>Here the datatype uses a datatype defined in MobileApp</p>
+""", CodeForJs = """    LoginRequest(data <: MobileApp.LoginData):
         return MobileApp.LoginResponse
 """},
 
@@ -58,7 +64,7 @@ Segs = [[
       {CodeEmpty= true,CodeLeading= true,CodeRun= false,CodeRendered="""""",DocsRendered= """<p><code>-o</code> is the output file</p>
 """, CodeForJs = """"""},
 
-      {CodeEmpty= true,CodeLeading= true,CodeRun= false,CodeRendered="""""",DocsRendered= """<p><code>-s</code> specifies a starting endpoint for the sequence diagram to initiate</p>
+      {CodeEmpty= true,CodeLeading= true,CodeRun= false,CodeRendered="""""",DocsRendered= """<p>`-s &ldquo;MobileApp &lt;- Login&rdquo; specifies this is the endpoint to start the sequence diagram at</p>
 """, CodeForJs = """"""},
 
       {CodeEmpty= true,CodeLeading= true,CodeRun= false,CodeRendered="""""",DocsRendered= """<p><code>project.sysl</code> is the input sysl file</p>
