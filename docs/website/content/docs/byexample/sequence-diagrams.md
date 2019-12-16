@@ -54,7 +54,7 @@ Segs = [[
 """, CodeForJs = """""",Image = ""},
 
       {CodeEmpty= false,CodeLeading= true,CodeRun= true,CodeRendered="""<pre class="chroma">
-<span class="nx">sysl</span> <span class="nx">sd</span> <span class="o">-</span><span class="nx">o</span> <span class="s">&#34;project.png&#34;</span> <span class="o">-</span><span class="nx">s</span> <span class="s">&#34;MobileApp &lt;- Login&#34;</span> <span class="mi">1</span><span class="nx">_project</span><span class="p">.</span><span class="nx">sysl</span></pre>""",DocsRendered= """<p>Now run the sysl sd (sequence diagram) command</p>
+<span class="nx">sysl</span> <span class="nx">sd</span> <span class="o">-</span><span class="nx">o</span> <span class="s">&#34;3_project.svg&#34;</span> <span class="o">-</span><span class="nx">s</span> <span class="s">&#34;MobileApp &lt;- Login&#34;</span> <span class="mi">1</span><span class="nx">_project</span><span class="p">.</span><span class="nx">sysl</span></pre>""",DocsRendered= """<p>Now run the sysl sd (sequence diagram) command</p>
 """, CodeForJs = """""",Image = ""},
 
       {CodeEmpty= true,CodeLeading= true,CodeRun= false,CodeRendered="""""",DocsRendered= """<p><code>-o</code> is the output file</p>
@@ -66,14 +66,14 @@ Segs = [[
       {CodeEmpty= true,CodeLeading= true,CodeRun= false,CodeRendered="""""",DocsRendered= """<p><code>project.sysl</code> is the input sysl file</p>
 """, CodeForJs = """""",Image = ""},
 
-      {CodeEmpty= true,CodeLeading= false,CodeRun= false,CodeRendered="""""",DocsRendered= """<p>project.png:</p>
+      {CodeEmpty= true,CodeLeading= false,CodeRun= false,CodeRendered="""""",DocsRendered= """<p>project.svg:</p>
 """, CodeForJs = """""",Image = ""},
 
 
 ],
 [
   
-      {CodeEmpty= false,CodeLeading= false,CodeRun= false,CodeRendered="""""",DocsRendered= """""", CodeForJs = """""",Image = "/assets/byexample/images/sequence-diagrams5.png"},
+      {CodeEmpty= false,CodeLeading= false,CodeRun= false,CodeRendered="""""",DocsRendered= """""", CodeForJs = """""",Image = "/assets/byexample/images/sequence-diagrams5.svg"},
 
 
 ],

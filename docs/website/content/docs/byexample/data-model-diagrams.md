@@ -63,10 +63,12 @@ App:
 """, CodeForJs = """""",Image = ""},
 
       {CodeEmpty= false,CodeLeading= true,CodeRun= true,CodeRendered="""<pre class="chroma">
-<span class="nx">sysl</span> <span class="nx">data</span> <span class="o">-</span><span class="nx">o</span> <span class="s">&#34;3_project.png&#34;</span> <span class="o">-</span><span class="nx">j</span> <span class="nx">Project</span> <span class="mi">1</span><span class="nx">_project</span><span class="p">.</span><span class="nx">sysl</span></pre>""",DocsRendered= """<p>Now run the sysl data model command</p>
+<span class="nx">sysl</span> <span class="nx">data</span> <span class="o">-</span><span class="nx">o</span> <span class="s">&#34;3_project.svg&#34;</span> <span class="o">-</span><span class="nx">j</span> <span class="nx">Project</span> <span class="mi">1</span><span class="nx">_project</span><span class="p">.</span><span class="nx">sysl</span></pre>""",DocsRendered= """<p>Now run the sysl data model command</p>
 """, CodeForJs = """""",Image = ""},
 
-      {CodeEmpty= true,CodeLeading= true,CodeRun= false,CodeRendered="""""",DocsRendered= """<p>&rdquo;-o&rdquo; is the output file&rdquo;%(epname).png&rdquo; is a special &ldquo;hack&rdquo; and will generate a seperate data model diagram for all the applications defined within the project:ls1_project.sysl 2_project.sh  App.png Server.png</p>
+      {CodeEmpty= false,CodeLeading= true,CodeRun= false,CodeRendered="""<pre class="chroma">
+<span class="err">#</span><span class="nx">ls</span>
+<span class="err">#</span><span class="mi">1</span><span class="nx">_project</span><span class="p">.</span><span class="nx">sysl</span> <span class="mi">2</span><span class="nx">_project</span><span class="p">.</span><span class="nx">sh</span>  <span class="nx">App</span><span class="p">.</span><span class="nx">svg</span> <span class="nx">Server</span><span class="p">.</span><span class="nx">svg</span></pre>""",DocsRendered= """<p>&rdquo;-o&rdquo; is the output file&rdquo;%(epname).svg&rdquo; is a special &ldquo;hack&rdquo; and will generate a seperate data model diagram for all the applications defined within the project:</p>
 """, CodeForJs = """""",Image = ""},
 
       {CodeEmpty= true,CodeLeading= true,CodeRun= false,CodeRendered="""""",DocsRendered= """<p>&rdquo;-j&rdquo; specifies the project to render</p>
@@ -81,7 +83,7 @@ App:
       {CodeEmpty= true,CodeLeading= true,CodeRun= false,CodeRendered="""""",DocsRendered= """<p>See <a href="https://github.com/anz-bank/sysl/issues/474">https://github.com/anz-bank/sysl/issues/474</a> for progress updates</p>
 """, CodeForJs = """""",Image = ""},
 
-      {CodeEmpty= true,CodeLeading= false,CodeRun= false,CodeRendered="""""",DocsRendered= """<p>project.png:</p>
+      {CodeEmpty= true,CodeLeading= false,CodeRun= false,CodeRendered="""""",DocsRendered= """<p>project.svg:</p>
 """, CodeForJs = """""",Image = ""},
 
 
@@ -95,11 +97,11 @@ App:
 [
   
       {CodeEmpty= false,CodeLeading= true,CodeRun= false,CodeRendered="""<pre class="chroma">
-<span class="nx">sysl</span> <span class="nx">data</span> <span class="o">-</span><span class="nx">o</span> <span class="s">&#34;%(epname).png&#34;</span> <span class="o">-</span><span class="nx">j</span> <span class="nx">Project</span> <span class="mi">1</span><span class="nx">_project</span><span class="p">.</span><span class="nx">sysl</span></pre>""",DocsRendered= """<p>If seperate data model diagrams are needed for every application, &ldquo;%(epname).png&rdquo; can be used as the output file, and a data model will be rendered for every application</p>
+<span class="nx">sysl</span> <span class="nx">data</span> <span class="o">-</span><span class="nx">o</span> <span class="s">&#34;%(epname).svg&#34;</span> <span class="o">-</span><span class="nx">j</span> <span class="nx">Project</span> <span class="mi">1</span><span class="nx">_project</span><span class="p">.</span><span class="nx">sysl</span></pre>""",DocsRendered= """<p>If seperate data model diagrams are needed for every application, &ldquo;%(epname).svg&rdquo; can be used as the output file, and a data model will be rendered for every application</p>
 """, CodeForJs = """""",Image = ""},
 
       {CodeEmpty= false,CodeLeading= false,CodeRun= true,CodeRendered="""<pre class="chroma"><span class="nx">ls</span>
-<span class="err">#</span><span class="mi">1</span><span class="nx">_project</span><span class="p">.</span><span class="nx">sysl</span> <span class="mi">4</span><span class="nx">_project</span><span class="p">.</span><span class="nx">sh</span>  <span class="nx">App</span><span class="p">.</span><span class="nx">png</span> <span class="nx">Server</span><span class="p">.</span><span class="nx">png</span> <span class="nx">Bar</span><span class="p">.</span><span class="nx">png</span></pre>""",DocsRendered= """""", CodeForJs = """""",Image = ""},
+<span class="err">#</span><span class="mi">1</span><span class="nx">_project</span><span class="p">.</span><span class="nx">sysl</span> <span class="mi">4</span><span class="nx">_project</span><span class="p">.</span><span class="nx">sh</span>  <span class="nx">App</span><span class="p">.</span><span class="nx">svg</span> <span class="nx">Server</span><span class="p">.</span><span class="nx">svg</span> <span class="nx">Bar</span><span class="p">.</span><span class="nx">svg</span></pre>""",DocsRendered= """""", CodeForJs = """""",Image = ""},
 
 
 ],
