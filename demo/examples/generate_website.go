@@ -168,14 +168,15 @@ type Seg struct {
 	Docs, DocsRendered              string
 	Code, CodeRendered, CodeForJs   string
 	CodeEmpty, CodeLeading, CodeRun bool
+	Image                           string
 }
 
 // Example is info extracted from an example file
 type Example struct {
-	ID, Name                    string
-	Topic                       string
-	Weight                      int
-	Images                      []string
+	ID, Name string
+	Topic    string
+	Weight   int
+
 	GoCode, GoCodeHash, URLHash string
 	Segs                        [][]*Seg
 	PrevExample                 *Example
@@ -285,8 +286,10 @@ func parseExamples() []*Example {
 			example.Topic = topic
 			example.Segs = make([][]*Seg, 0)
 			sourcePaths := mustGlob(exampleID + "/*")
-
 			for _, sourcePath := range sourcePaths {
+
+				println(sourcePath)
+
 				if ok, ext := isImageFile(sourcePath); ok {
 					destination := assetDir + "images/" + exampleID + strconv.Itoa(weight) + ext
 					copyFile(sourcePath, destination)
@@ -294,7 +297,11 @@ func parseExamples() []*Example {
 					// This is the path that gets rendered in the markdown file
 					imagesRelativeToSite := "/assets/byexample/images/"
 
-					example.Images = append(example.Images, imagesRelativeToSite+exampleID+strconv.Itoa(weight)+ext)
+					var Segment = make([]*Seg, 1)
+					imageName := imagesRelativeToSite + exampleID + strconv.Itoa(weight) + ext
+					Segment[0] = &Seg{Image: imageName}
+					example.Segs = append(example.Segs, Segment)
+
 				} else {
 					sourceSegs, filecontents := parseAndRenderSegs(sourcePath)
 					if filecontents != "" {
@@ -302,6 +309,7 @@ func parseExamples() []*Example {
 					}
 					example.Segs = append(example.Segs, sourceSegs)
 				}
+
 			}
 			newCodeHash := sha1Sum(example.GoCode)
 			if example.GoCodeHash != newCodeHash {
