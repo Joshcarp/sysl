@@ -251,7 +251,7 @@ func TestLoadApp(t *testing.T) {
 	t.Parallel()
 
 	args := loadAppArgs{
-		"./tests/", "sequence_diagram_test.sysl",
+		testDir + "/", "sequence_diagram_test.sysl",
 	}
 	memFs, fs := syslutil.WriteToMemOverlayFs("/")
 	logger, _ := test.NewNullLogger()
@@ -298,7 +298,7 @@ func TestDoConstructSequenceDiagramsNoSyslSdFiltersWithoutEndpoints(t *testing.T
 
 	// Given
 	args := &sdArgs{
-		rootModel: "./tests/",
+		rootModel: testDir + "/",
 		modules:   "sequence_diagram_test.sysl",
 	}
 	expected := make(map[string]string)
@@ -318,7 +318,7 @@ func TestDoConstructSequenceDiagramsMissingFile(t *testing.T) {
 
 	// Given
 	args := &sdArgs{
-		rootModel: "./tests/",
+		rootModel: testDir + "/",
 		modules:   "MISSING_FILE.sysl",
 	}
 
@@ -334,7 +334,7 @@ func TestDoConstructSequenceDiagramsNoSyslSdFilters(t *testing.T) {
 
 	// Given
 	args := &sdArgs{
-		rootModel: "./tests/",
+		rootModel: testDir + "/",
 		modules:   "sequence_diagram_test.sysl",
 		endpoints: []string{"QueryUser"},
 		output:    "_.png",
@@ -354,7 +354,7 @@ func TestDoConstructSequenceDiagrams(t *testing.T) {
 
 	// Given
 	args := &sdArgs{
-		rootModel: "./tests/",
+		rootModel: testDir + "/",
 		modules:   "sequence_diagram_project.sysl",
 		output:    "%(epname).png",
 		apps:      []string{"Project"},
@@ -405,9 +405,9 @@ func TestDoConstructSequenceDiagramWithBlackbox(t *testing.T) {
 
 	// Given
 	args := &sdArgs{
-		rootModel:  "./tests/",
+		rootModel:  testDir + "/",
 		modules:    "call.sysl",
-		output:     "tests/call.png",
+		output:     testDir + "/call.png",
 		endpoints:  []string{"MobileApp <- Login"},
 		blackboxes: [][]string{{"Server <- Login", "call to database"}},
 	}
@@ -443,7 +443,7 @@ deactivate _0
 		args.title, args.output, args.modules, args.endpoints, args.apps, args.blackboxes,
 		args.groupbox)
 	require.NoError(t, err)
-	expected := map[string]string{"tests/call.png": expectContent}
+	expected := map[string]string{testDir + "/call.png": expectContent}
 	// Then
 	assert.Equal(t, expected, result)
 }
@@ -453,7 +453,7 @@ func TestDoConstructSequenceDiagramsToFormatComplexName(t *testing.T) {
 
 	// Given
 	args := &sdArgs{
-		rootModel: "./tests/",
+		rootModel: testDir + "/",
 		modules:   "sequence_diagram_complex_format.sysl",
 		output:    "%(epname).png",
 		apps:      []string{"Project"},
@@ -512,9 +512,9 @@ func TestDoConstructSequenceDiagramWithGroupingCommandline(t *testing.T) {
 
 	// Given
 	args := &sdArgs{
-		rootModel: "./tests/",
+		rootModel: testDir + "/",
 		modules:   "call.sysl",
-		output:    "tests/call.png",
+		output:    testDir + "/call.png",
 		endpoints: []string{"MobileApp <- Login"},
 		groupbox:  "owner",
 	}
@@ -536,13 +536,13 @@ end box`
 	require.NoError(t, err)
 
 	// Then
-	boxPresent, err = regexp.MatchString(boxServer, result["tests/call.png"])
+	boxPresent, err = regexp.MatchString(boxServer, result[testDir+"/call.png"])
 	assert.Nil(t, err, "Error compiling regular expression")
 	assert.True(t, boxPresent)
-	boxPresent, err = regexp.MatchString(boxClient, result["tests/call.png"])
+	boxPresent, err = regexp.MatchString(boxClient, result[testDir+"/call.png"])
 	assert.Nil(t, err, "Error compiling regular expression")
 	assert.True(t, boxPresent)
-	assert.Equal(t, 4, strings.Count(result["tests/call.png"], "participant"))
+	assert.Equal(t, 4, strings.Count(result[testDir+"/call.png"], "participant"))
 }
 
 func TestDoConstructSequenceDiagramWithGroupingSysl(t *testing.T) {
@@ -550,7 +550,7 @@ func TestDoConstructSequenceDiagramWithGroupingSysl(t *testing.T) {
 
 	// Given
 	args := &sdArgs{
-		rootModel: "./tests/",
+		rootModel: testDir + "/",
 		modules:   "groupby.sysl",
 		output:    "%(epname).png",
 		endpoints: []string{"SEQ-One"},
@@ -587,7 +587,7 @@ func TestDoConstructSequenceDiagramWithOneEntityBox(t *testing.T) {
 
 	// Given
 	args := &sdArgs{
-		rootModel: "./tests/",
+		rootModel: testDir + "/",
 		modules:   "groupby.sysl",
 		output:    "%(epname).png",
 		endpoints: []string{"SEQ-Two"},
