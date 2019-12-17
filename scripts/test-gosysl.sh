@@ -1,5 +1,4 @@
 #!/bin/bash
-go test ./...
 
 set -e
 ROOT="cmd/sysl/tests"
@@ -27,3 +26,5 @@ fi
 echo "gosysl version is ${version}"
 
 $GOPATH/bin/sysl info
+
+go test ../...
