@@ -1,4 +1,5 @@
 #!/bin/bash
+go test ./...
 
 set -e
 ROOT="cmd/sysl/tests"
