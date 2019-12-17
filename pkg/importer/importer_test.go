@@ -16,13 +16,13 @@ import (
 
 type testConfig struct {
 	name          string
-	testDir       string
+	testDir        string
 	testExtension string
 	fn            Func
 }
 
 func runImportEqualityTests(t *testing.T, cfg testConfig) {
-	files, err := ioutil.ReadDir(cfg.testDir)
+	files, err := ioutil.ReadDir(cfg.testDir )
 	require.NoError(t, err)
 	for _, f := range files {
 		if f.IsDir() {
@@ -35,9 +35,9 @@ func runImportEqualityTests(t *testing.T, cfg testConfig) {
 			filename := strings.TrimSuffix(f.Name(), ext)
 			t.Run(fmt.Sprintf("%s - %s", cfg.name, filename), func(t *testing.T) {
 				t.Parallel()
-				input, err := ioutil.ReadFile(path.Join(cfg.testDir, filename+"."+cfg.testExtension))
+				input, err := ioutil.ReadFile(path.Join(cfg.testDir , filename+"."+cfg.testExtension))
 				require.NoError(t, err)
-				syslFile := path.Join(cfg.testDir, filename+".sysl")
+				syslFile := path.Join(cfg.testDir , filename+".sysl")
 				expected, err := ioutil.ReadFile(syslFile)
 				require.NoError(t, err)
 				expected = syslutil.HandleCRLF(expected)
@@ -53,7 +53,7 @@ func runImportEqualityTests(t *testing.T, cfg testConfig) {
 func TestLoadSwaggerFromTestFiles(t *testing.T) {
 	runImportEqualityTests(t, testConfig{
 		name:          "TestLoadSwaggerFromTestFiles",
-		testDir:       "tests-swagger",
+		testDir :       "tests-swagger",
 		testExtension: "yaml",
 		fn:            LoadSwaggerText,
 	})
@@ -62,7 +62,7 @@ func TestLoadSwaggerFromTestFiles(t *testing.T) {
 func TestLoadXSDFromTestFiles(t *testing.T) {
 	runImportEqualityTests(t, testConfig{
 		name:          "TestLoadXSDFromTestFiles",
-		testDir:       "tests-xsd",
+		testDir :       "tests-xsd",
 		testExtension: "xsd",
 		fn:            LoadXSDText,
 	})
@@ -71,7 +71,7 @@ func TestLoadXSDFromTestFiles(t *testing.T) {
 func TestLoadGrammarFromTestFiles(t *testing.T) {
 	runImportEqualityTests(t, testConfig{
 		name:          "TestLoadGrammarFromTestFiles",
-		testDir:       "tests-grammar",
+		testDir :       "tests-grammar",
 		testExtension: "g",
 		fn:            LoadGrammar,
 	})
