@@ -1,4 +1,4 @@
-package main
+package command
 
 import (
 	"sort"
@@ -6,6 +6,8 @@ import (
 	sysl "github.com/anz-bank/sysl/pkg/sysl"
 	"github.com/anz-bank/sysl/pkg/syslutil"
 )
+
+const endpointWildcard = ".. * <- *"
 
 type intsBuilder struct {
 	m            *sysl.Module

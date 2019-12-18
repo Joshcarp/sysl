@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"runtime"
 
+	"github.com/anz-bank/sysl/cmd/command"
 	"gopkg.in/alecthomas/kingpin.v2"
 )
 
@@ -17,7 +18,7 @@ func (p *infoCmd) Configure(app *kingpin.Application) *kingpin.CmdClause {
 	return cmd
 }
 
-func (p *infoCmd) Execute(args ExecuteArgs) error {
+func (p *infoCmd) Execute(args command.ExecuteArgs) error {
 	fmt.Printf("Version    : %s\n", Version)
 	fmt.Printf("Commit ID  : %s\n", GitCommit)
 	fmt.Printf("Build date : %s\n", BuildDate)

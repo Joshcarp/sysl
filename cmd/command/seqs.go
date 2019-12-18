@@ -1,4 +1,4 @@
-package main
+package command
 
 import (
 	"encoding/json"
@@ -42,7 +42,7 @@ func generateSequenceDiag(m *sysl.Module, p *sequenceDiagParam, logger *logrus.L
 	return w.String(), nil
 }
 
-func constructFormatParser(former, latter string) *FormatParser {
+func ConstructFormatParser(former, latter string) *FormatParser {
 	fmtstr := former
 	if former == "" {
 		fmtstr = latter
@@ -93,9 +93,9 @@ func DoConstructSequenceDiagrams(
 		for _, appName := range cmdContextParam.appsFlag {
 			app := model.Apps[appName]
 			bbs := TransformBlackBoxes(app.GetAttrs()["blackboxes"].GetA().GetElt())
-			spseqtitle := constructFormatParser(app.GetAttrs()["seqtitle"].GetS(), cmdContextParam.title)
-			spep := constructFormatParser(app.GetAttrs()["epfmt"].GetS(), cmdContextParam.endpointFormat)
-			spapp := constructFormatParser(app.GetAttrs()["appfmt"].GetS(), cmdContextParam.appFormat)
+			spseqtitle := ConstructFormatParser(app.GetAttrs()["seqtitle"].GetS(), cmdContextParam.title)
+			spep := ConstructFormatParser(app.GetAttrs()["epfmt"].GetS(), cmdContextParam.endpointFormat)
+			spapp := ConstructFormatParser(app.GetAttrs()["appfmt"].GetS(), cmdContextParam.appFormat)
 			keys := []string{}
 			for k := range app.GetEndpoints() {
 				keys = append(keys, k)
@@ -158,8 +158,8 @@ func DoConstructSequenceDiagrams(
 		if len(cmdContextParam.endpointsFlag) == 0 {
 			return result, nil
 		}
-		spep := constructFormatParser("", cmdContextParam.endpointFormat)
-		spapp := constructFormatParser("", cmdContextParam.appFormat)
+		spep := ConstructFormatParser("", cmdContextParam.endpointFormat)
+		spapp := ConstructFormatParser("", cmdContextParam.appFormat)
 		bbsAll := map[string]*Upto{}
 		TransformBlackboxesToUptos(bbsAll, blackboxes, BBCommandLine)
 		sd := &sequenceDiagParam{

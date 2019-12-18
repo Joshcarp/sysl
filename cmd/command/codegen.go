@@ -1,4 +1,4 @@
-package main
+package command
 
 import (
 	"io"
@@ -324,7 +324,7 @@ func appendCodeOutput(g *parser.Grammar, v *sysl.Value,
 	return codeOutput
 }
 
-func outputToFiles(output []*CodeGenOutput, fs afero.Fs) error {
+func OutputToFiles(output []*CodeGenOutput, fs afero.Fs) error {
 	for _, o := range output {
 		f, err := fs.Create(o.filename)
 		if err != nil {

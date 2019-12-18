@@ -7,7 +7,6 @@ import (
 	"strings"
 
 	"github.com/anz-bank/sysl/pkg/parse"
-	sysl "github.com/anz-bank/sysl/pkg/sysl"
 	"github.com/anz-bank/sysl/pkg/syslutil"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/afero"
@@ -32,20 +31,6 @@ type projectConfiguration struct {
 	module, root string
 	rootIsFound  bool
 	fs           afero.Fs
-}
-
-func LoadSyslModule(root, filename string, fs afero.Fs, logger *logrus.Logger) (*sysl.Module, string, error) {
-	logger.Debugf("Attempting to load module:%s (root:%s)", filename, root)
-	projectConfig := newProjectConfiguration()
-	if err := projectConfig.configureProject(root, filename, fs, logger); err != nil {
-		return nil, "", err
-	}
-
-	modelParser := parse.NewParser()
-	if !projectConfig.rootIsFound {
-		modelParser.RestrictToLocalImport()
-	}
-	return parse.LoadAndGetDefaultApp(projectConfig.module, projectConfig.fs, modelParser)
 }
 
 func newProjectConfiguration() *projectConfiguration {

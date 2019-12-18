@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 
+	"github.com/anz-bank/sysl/cmd/command"
 	"github.com/anz-bank/sysl/pkg/eval"
 	"github.com/anz-bank/sysl/pkg/syslutil"
 	"github.com/anz-bank/sysl/pkg/validate"
@@ -41,7 +42,7 @@ func (p *codegenCmd) Configure(app *kingpin.Application) *kingpin.CmdClause {
 	return cmd
 }
 
-func (p *codegenCmd) Execute(args ExecuteArgs) error {
+func (p *codegenCmd) Execute(args command.ExecuteArgs) error {
 	if p.validateOnly {
 		return validate.DoValidate(validate.Params{
 			RootTransform: p.rootTransform,
@@ -60,9 +61,9 @@ func (p *codegenCmd) Execute(args ExecuteArgs) error {
 		p.appName = args.DefaultAppName
 	}
 	eval.EnableDebugger = p.enableDebugger
-	output, err := GenerateCode(&p.CmdContextParamCodegen, args.Module, p.appName, args.Filesystem, args.Logger)
+	output, err := command.GenerateCode(&p.CmdContextParamCodegen, args.Module, p.appName, args.Filesystem, args.Logger)
 	if err != nil {
 		return err
 	}
-	return outputToFiles(output, syslutil.NewChrootFs(args.Filesystem, p.outDir))
+	return command.OutputToFiles(output, syslutil.NewChrootFs(args.Filesystem, p.outDir))
 }

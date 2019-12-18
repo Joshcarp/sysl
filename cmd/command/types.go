@@ -1,4 +1,4 @@
-package main
+package command
 
 import (
 	sysl "github.com/anz-bank/sysl/pkg/sysl"

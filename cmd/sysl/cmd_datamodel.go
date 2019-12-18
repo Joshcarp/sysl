@@ -7,11 +7,12 @@ import (
 
 	"gopkg.in/alecthomas/kingpin.v2"
 
+	"github.com/anz-bank/sysl/cmd/command"
 	sysl "github.com/anz-bank/sysl/pkg/sysl"
 	"github.com/sirupsen/logrus"
 )
 
-func GenerateDataModels(datagenParams *CmdContextParamDatagen,
+func GenerateDataModels(datagenParams *command.CmdContextParamCodegen,
 	model *sysl.Module, logger *logrus.Logger) (map[string]string, error) {
 	outmap := make(map[string]string)
 
@@ -20,7 +21,7 @@ func GenerateDataModels(datagenParams *CmdContextParamDatagen,
 	logger.Debugf("filter: %s\n", datagenParams.filter)
 	logger.Debugf("output: %s\n", datagenParams.output)
 
-	spclass := constructFormatParser("", datagenParams.classFormat)
+	spclass := command.ConstructFormatParser("", datagenParams.classFormat)
 
 	// The "project" app that specifies the data models to be built
 	var app *sysl.Application
