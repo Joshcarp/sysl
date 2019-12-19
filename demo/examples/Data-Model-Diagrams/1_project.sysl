@@ -22,4 +22,3 @@ AnotherOne:
     !type name:
         firstName <: string
         lastName <: string
-        
