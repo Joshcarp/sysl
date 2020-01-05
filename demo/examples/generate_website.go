@@ -71,7 +71,7 @@ func mustReadFile(path string) string {
 	return string(bytes)
 }
 
-func cahcheChroma(lex string, src string) string {
+func cacheChroma(lex string, src string) string {
 	ensureDir(cacheDir)
 	cachePath := cacheDir + "/" + sha1Sum(src)
 	cacheBytes, cacheErr := ioutil.ReadFile(cachePath)
@@ -214,7 +214,7 @@ func parseAndRenderSegs(sourcePath string) ([]*Seg, string) {
 			seg.DocsRendered = markdown(seg.Docs)
 		}
 		if seg.Code != "" {
-			seg.CodeRendered = cahcheChroma(lexer, seg.Code)
+			seg.CodeRendered = cacheChroma(lexer, seg.Code)
 
 			// adding the content to the js code for copying to the clipboard
 			if strings.HasSuffix(sourcePath, ".sysl") {
