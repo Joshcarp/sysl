@@ -124,7 +124,7 @@ func whichLexer(path string) string {
 	} else if strings.HasSuffix(path, ".sh") {
 		return "console"
 	}
-	panic("No lexer for " + path)
+	return ""
 }
 
 func debug(msg string) {
@@ -207,8 +207,8 @@ func parseSegs(sourcePath string) ([]*Seg, string) {
 }
 
 func parseAndRenderSegs(sourcePath string) ([]*Seg, string) {
-	segs, filecontent := parseSegs(sourcePath)
 	lexer := whichLexer(sourcePath)
+	segs, filecontent := parseSegs(sourcePath)
 	for _, seg := range segs {
 		if seg.Docs != "" {
 			seg.DocsRendered = markdown(seg.Docs)
@@ -277,7 +277,7 @@ func parseExamples() []*Example {
 					Segment[0] = &Seg{Image: imageName}
 					example.Segs = append(example.Segs, Segment)
 
-				} else {
+				} else if whichLexer(sourcePath) != "" {
 					sourceSegs, filecontents := parseAndRenderSegs(sourcePath)
 					if filecontents != "" {
 						example.GoCode = filecontents
