@@ -138,9 +138,9 @@ func findRootFromSyslModule(modulePath string, fs afero.Fs) (string, error) {
 	}
 }
 
-// main3 is the real main function. It takes its output streams and command-line
+// Main3 is the real main function. It takes its output streams and command-line
 // arguments as parameters to support testability.
-func main3(args []string, fs afero.Fs, logger *logrus.Logger) error {
+func Main3(args []string, fs afero.Fs, logger *logrus.Logger) error {
 	syslCmd := kingpin.New("sysl", "System Modelling Language Toolkit")
 	syslCmd.Version(Version)
 	syslCmd.UsageTemplate(kingpin.SeparateOptionalFlagsUsageTemplate)
@@ -193,16 +193,16 @@ func (d *debugTypeData) add(app *kingpin.Application) {
 	app.PreAction(d.do)
 }
 
-// main2 calls main3 and handles any errors it returns. It takes its output
-// streams and command-line arguments and even main3 as parameters to support
+// main2 calls Main3 and handles any errors it returns. It takes its output
+// streams and command-line arguments and even Main3 as parameters to support
 // testability.
-func main2(
+func Main2(
 	args []string,
 	fs afero.Fs,
 	logger *logrus.Logger,
-	main3 func(args []string, fs afero.Fs, logger *logrus.Logger) error,
+	Main3 func(args []string, fs afero.Fs, logger *logrus.Logger) error,
 ) int {
-	if err := main3(args, fs, logger); err != nil {
+	if err := Main3(args, fs, logger); err != nil {
 		logger.Errorln(err.Error())
 		if err, ok := err.(parse.Exit); ok {
 			return err.Code
@@ -214,7 +214,7 @@ func main2(
 
 // main is as small as possible to minimise its no-coverage footprint.
 func main() {
-	if rc := main2(os.Args, afero.NewOsFs(), logrus.StandardLogger(), main3); rc != 0 {
+	if rc := Main2(os.Args, afero.NewOsFs(), logrus.StandardLogger(), Main3); rc != 0 {
 		os.Exit(rc)
 	}
 }
