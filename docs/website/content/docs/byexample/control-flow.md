@@ -6,7 +6,7 @@ description= ""
 layout= "byexample"
 weight = 5
 topic = "Basics"
-
+PlaygroundURL = "http://joshcarp.github.io/sysl-playground/?input=Rm9vOgogICF0eXBlIEVycm9yUmVzcG9uc2U6CiAgICBzdGF0dXMgPDogc3RyaW5nCgogICF0eXBlIFJlc291cmNlTm90Rm91bmRFcnJvcjoKICAgIHN0YXR1cyA8OiBzdHJpbmcgCiAgdG9kb3M6CiAgCiAgICAjIEhlcmUgd2UgY2FuIHVzZSBpZiAob3IgSUYpIGFuZCBzcGVjaWZ5IGNvbmRpdGlvbmFsIHJldHVybnMgYmFzZWQgb24gdGhlIGh0dHBzIHN0YXR1cyBjb2RlcwogICAgIyBOb3RlIHRoZXNlIHZhcmlhYmxlcyBkb24ndCBuZWVkIHRvIGJlIGRlZmluZWQ7IHRoZXkncmUganVzdCBmb3Igc2VxdWVuY2UgZGlhZ3JhbSBnZW5lcmF0aW9uCiAgICBpZiBub3Rmb3VuZDoKICAgICAgcmV0dXJuIDQwNCA8OiBSZXNvdXJjZU5vdEZvdW5kRXJyb3IKICAgIGVsc2UgaWYgZmFpbGVkOgogICAgICByZXR1cm4gNTAwIDw6IEVycm9yUmVzcG9uc2UKICAgIGVsc2U6ICAgIAogICAgICByZXR1cm4gMjAwIDw6IFRvZG8gCg==&cmd=IyBCeSBjcmVhdGluZyBhIHNlcXVlbmNlIGRpYWdyYW0gd2UgY2FuIHNlZSB0aGF0IHRoZSBjb25kaXRpb25hbCBzdGF0ZW1lbnRzIGFyZSByZW5kZXJlZCBhc3dlbGwKCgpzeXNsIHNkIC1vICIzX3Byb2plY3Quc3ZnIiAtcyAiRm9vIDwtIHRvZG9zIiAxX3Byb2plY3Quc3lzbAo="
 ID = "control-flow"
 Segs = [[
   
@@ -20,7 +20,7 @@ Segs = [[
       {CodeEmpty= false,CodeLeading= true,CodeRun= true,CodeRendered="""<pre class="chroma">  <span class="p">!</span><span class="kd">type</span> <span class="nx">ResourceNotFoundError</span><span class="p">:</span>
     <span class="nx">status</span> <span class="p">&lt;:</span> <span class="kt">string</span> 
   <span class="nx">todos</span><span class="p">:</span>
-  </pre>""",DocsRendered= """<p>Here we can use if (or IF) and specify conditional returns based on the https status codes</p>
+  </pre>""",DocsRendered= """<p>Here we can use if (or IF) and specify conditional returns based on the https status codesNote these variables don&rsquo;t need to be defined; they&rsquo;re just for sequence diagram generation</p>
 """, CodeForJs = """  !type ResourceNotFoundError:
     status <: string 
   todos:

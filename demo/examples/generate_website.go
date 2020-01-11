@@ -3,6 +3,7 @@ package main
 import (
 	"bytes"
 	"crypto/sha1"
+	"encoding/base64"
 	"fmt"
 	"io/ioutil"
 	"os"
@@ -151,6 +152,8 @@ type Example struct {
 	Weight   int
 
 	GoCode, GoCodeHash, URLHash string
+	Cmd                         string
+	PlaygroundURL               string
 	Segs                        [][]*Seg
 	PrevExample                 *Example
 	NextExample                 *Example
@@ -222,9 +225,9 @@ func parseAndRenderSegs(sourcePath string) ([]*Seg, string) {
 			}
 		}
 	}
-	if lexer != "sysl" {
-		filecontent = ""
-	}
+	// if lexer != "sysl" {
+	// 	filecontent = ""
+	// }
 	return segs, filecontent
 }
 
@@ -279,17 +282,22 @@ func parseExamples() []*Example {
 
 				} else if whichLexer(sourcePath) != "" {
 					sourceSegs, filecontents := parseAndRenderSegs(sourcePath)
+
 					if filecontents != "" {
-						example.GoCode = filecontents
+						switch whichLexer(sourcePath) {
+						case "sysl":
+							example.GoCode = filecontents
+						case "console":
+							fmt.Println(filecontents)
+							example.Cmd = filecontents
+						}
+
 					}
 					example.Segs = append(example.Segs, sourceSegs)
 				}
 
 			}
-			newCodeHash := sha1Sum(example.GoCode)
-			if example.GoCodeHash != newCodeHash {
-
-			}
+			example.PlaygroundURL = syslplaygroundLink(example.GoCode, example.Cmd)
 			examples = append(examples, &example)
 		}
 	}
@@ -323,4 +331,19 @@ func isImageFile(filename string) (bool, string) {
 		}
 	}
 	return false, ""
+}
+
+func syslplaygroundLink(code, cmd string) string {
+	code = encode(code)
+	cmd = encode(cmd)
+	return fmt.Sprintf("http://joshcarp.github.io/sysl-playground/?input=%s&cmd=%s", code, cmd)
+}
+
+func encode(str string) string {
+	return base64.StdEncoding.EncodeToString([]byte(str))
+}
+
+func decode(str string) string {
+	this, _ := base64.StdEncoding.DecodeString(str)
+	return string(this)
 }
