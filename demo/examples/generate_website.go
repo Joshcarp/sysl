@@ -46,7 +46,12 @@ func check(err error) {
 		panic(err)
 	}
 }
+func findSyslCommand(input string) string {
+	var re = regexp.MustCompile(`(?m)(?:\n)(sysl.*)`)
 
+	return re.FindString(input)
+
+}
 func ensureDir(dir string) {
 	err := os.MkdirAll(dir, 0755)
 	check(err)
@@ -288,8 +293,9 @@ func parseExamples() []*Example {
 						case "sysl":
 							example.GoCode = filecontents
 						case "console":
-							fmt.Println(filecontents)
-							example.Cmd = filecontents
+							// fmt.Println(filecontents)
+							example.Cmd = findSyslCommand(filecontents)
+							fmt.Println(example.Cmd)
 						}
 
 					}
