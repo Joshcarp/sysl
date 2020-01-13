@@ -4,7 +4,7 @@ title= "Attributes"
 draft= false
 description= ""
 layout= "byexample"
-weight = 6
+weight = 12
 topic = "Basics"
 PlaygroundURL = "http://joshcarp.github.io/sysl-playground/?input=IyBTcGVjaWZ5IGF0dHJpYnV0ZXMgb2YgYXBwbGljYXRpb25zIG9yIGVuZHBvaW50cyBpbiBzcXVhcmUgYnJhY2tldHMuIApGb28gW3BhY2thZ2U9ImNvbS5teWNvbXBhbnkiXToKCiAgICAjIEF0dHJpYnV0ZXMgY2FuIGFsc28gYmUgdGFncyBzcGVjaWZpZWQgd2l0aCB0aWxkYSBub3RhdGlvbgogICAgQmFyKG5ld1Bvc3QgPDogc3RyaW5nIFt+Ym9keV0pOgogICAgICAgIHJldHVybiBzdHJpbmcK&cmd="
 ID = "attributes"

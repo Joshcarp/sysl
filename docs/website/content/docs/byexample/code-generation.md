@@ -4,7 +4,7 @@ title= "Code generation"
 draft= false
 description= ""
 layout= "byexample"
-weight = 12
+weight = 4
 topic = "Sysl Transformation Language"
 PlaygroundURL = "http://joshcarp.github.io/sysl-playground/?input=&cmd="
 ID = "code-generation"

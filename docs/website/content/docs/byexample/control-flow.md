@@ -4,9 +4,9 @@ title= "Control Flow"
 draft= false
 description= ""
 layout= "byexample"
-weight = 5
+weight = 11
 topic = "Basics"
-PlaygroundURL = "http://joshcarp.github.io/sysl-playground/?input=Rm9vOgogICF0eXBlIEVycm9yUmVzcG9uc2U6CiAgICBzdGF0dXMgPDogc3RyaW5nCgogICF0eXBlIFJlc291cmNlTm90Rm91bmRFcnJvcjoKICAgIHN0YXR1cyA8OiBzdHJpbmcgCiAgdG9kb3M6CiAgCiAgICAjIEhlcmUgd2UgY2FuIHVzZSBpZiAob3IgSUYpIGFuZCBzcGVjaWZ5IGNvbmRpdGlvbmFsIHJldHVybnMgYmFzZWQgb24gdGhlIGh0dHBzIHN0YXR1cyBjb2RlcwogICAgIyBOb3RlIHRoZXNlIHZhcmlhYmxlcyBkb24ndCBuZWVkIHRvIGJlIGRlZmluZWQ7IHRoZXkncmUganVzdCBmb3Igc2VxdWVuY2UgZGlhZ3JhbSBnZW5lcmF0aW9uCiAgICBpZiBub3Rmb3VuZDoKICAgICAgcmV0dXJuIDQwNCA8OiBSZXNvdXJjZU5vdEZvdW5kRXJyb3IKICAgIGVsc2UgaWYgZmFpbGVkOgogICAgICByZXR1cm4gNTAwIDw6IEVycm9yUmVzcG9uc2UKICAgIGVsc2U6ICAgIAogICAgICByZXR1cm4gMjAwIDw6IFRvZG8gCg==&cmd=IyBCeSBjcmVhdGluZyBhIHNlcXVlbmNlIGRpYWdyYW0gd2UgY2FuIHNlZSB0aGF0IHRoZSBjb25kaXRpb25hbCBzdGF0ZW1lbnRzIGFyZSByZW5kZXJlZCBhc3dlbGwKCgpzeXNsIHNkIC1vICIzX3Byb2plY3Quc3ZnIiAtcyAiRm9vIDwtIHRvZG9zIiAxX3Byb2plY3Quc3lzbAo="
+PlaygroundURL = "http://joshcarp.github.io/sysl-playground/?input=Rm9vOgogICF0eXBlIEVycm9yUmVzcG9uc2U6CiAgICBzdGF0dXMgPDogc3RyaW5nCgogICF0eXBlIFJlc291cmNlTm90Rm91bmRFcnJvcjoKICAgIHN0YXR1cyA8OiBzdHJpbmcgCiAgdG9kb3M6CiAgCiAgICAjIEhlcmUgd2UgY2FuIHVzZSBpZiAob3IgSUYpIGFuZCBzcGVjaWZ5IGNvbmRpdGlvbmFsIHJldHVybnMgYmFzZWQgb24gdGhlIGh0dHBzIHN0YXR1cyBjb2RlcwogICAgIyBOb3RlIHRoZXNlIHZhcmlhYmxlcyBkb24ndCBuZWVkIHRvIGJlIGRlZmluZWQ7IHRoZXkncmUganVzdCBmb3Igc2VxdWVuY2UgZGlhZ3JhbSBnZW5lcmF0aW9uCiAgICBpZiBub3Rmb3VuZDoKICAgICAgcmV0dXJuIDQwNCA8OiBSZXNvdXJjZU5vdEZvdW5kRXJyb3IKICAgIGVsc2UgaWYgZmFpbGVkOgogICAgICByZXR1cm4gNTAwIDw6IEVycm9yUmVzcG9uc2UKICAgIGVsc2U6ICAgIAogICAgICByZXR1cm4gMjAwIDw6IFRvZG8gCg==&cmd=c3lzbCBzZCAtbyAiM19wcm9qZWN0LnN2ZyIgLXMgIkZvbyA8LSB0b2RvcyIgMV9wcm9qZWN0LnN5c2w="
 ID = "control-flow"
 Segs = [[
   
@@ -53,7 +53,7 @@ Segs = [[
 ],
 [
   
-      {CodeEmpty= false,CodeLeading= false,CodeRun= false,CodeRendered="""""",DocsRendered= """""", CodeForJs = """""",Image = "/assets/byexample/images/control-flow4.svg"},
+      {CodeEmpty= false,CodeLeading= false,CodeRun= false,CodeRendered="""""",DocsRendered= """""", CodeForJs = """""",Image = "/assets/byexample/images/control-flow10.svg"},
 
 
 ],

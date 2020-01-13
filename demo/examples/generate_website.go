@@ -48,8 +48,9 @@ func check(err error) {
 }
 func findSyslCommand(input string) string {
 	var re = regexp.MustCompile(`(?m)(?:\n)(sysl.*)`)
-
-	return re.FindString(input)
+	ans := re.FindString(input)
+	ans = strings.Replace(ans, "\n", "", 1)
+	return ans
 
 }
 func ensureDir(dir string) {

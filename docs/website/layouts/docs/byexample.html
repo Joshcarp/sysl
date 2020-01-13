@@ -5,7 +5,7 @@
 {{$this := .Page}}
 {{ partial "sidebar" . }}
 {{$copyButtonActive := false}}
-
+{{$PlaygroundURL := .Params.PlaygroundURL}}
 
 <html>
 
@@ -53,6 +53,8 @@
           <!-- Here we ass the copy code button -->
           {{if .CodeRun}}
           {{if eq $copyButtonActive false}}
+          <a href="{{$PlaygroundURL}}"><img title="Run code" src="play.png" class="run"></a>
+
           <img title="Copy code" src="/img/clipboard.png" class="copy" />
 
           {{$copyButtonActive = true}}

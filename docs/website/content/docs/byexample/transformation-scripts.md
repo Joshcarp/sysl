@@ -4,7 +4,7 @@ title= "Transformation scripts"
 draft= false
 description= ""
 layout= "byexample"
-weight = 13
+weight = 5
 topic = "Sysl Transformation Language"
 PlaygroundURL = "http://joshcarp.github.io/sysl-playground/?input=&cmd="
 ID = "transformation-scripts"

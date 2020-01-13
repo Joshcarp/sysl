@@ -4,9 +4,9 @@ title= "Integration Diagrams"
 draft= false
 description= ""
 layout= "byexample"
-weight = 8
+weight = 14
 topic = "Diagrams"
-PlaygroundURL = "http://joshcarp.github.io/sysl-playground/?input=IyBJbiB0aGlzIGV4YW1wbGUgd2lsbCB1c2UgYSBzaW1wbGUgc3lzdGVtIGFuZCBzdGFydCB1c2luZyB0aGUgc3lzbCBjb21tYW5kIHRvIGdlbmVyYXRlIGRpYWdyYW1zLgoKCkludGVncmF0ZWRTeXN0ZW06CiAgICBpbnRlZ3JhdGVkX2VuZHBvaW50XzE6CiAgICAgICAgU3lzdGVtMSA8LSBlbmRwb2ludAogICAgaW50ZWdyYXRlZF9lbmRwb2ludF8yOgogICAgICAgIFN5c3RlbTIgPC0gZW5kcG9pbnQKClN5c3RlbTE6CiAgICBlbmRwb2ludDogLi4uClN5c3RlbTI6CiAgICBlbmRwb2ludDogLi4uCgpQcm9qZWN0IFthcHBmbXQ9IiUoYXBwbmFtZSkiXToKICAgIF86CiAgICAgICAgSW50ZWdyYXRlZFN5c3RlbQogICAgICAgIFN5c3RlbTEKICAgICAgICBTeXN0ZW0y&cmd=IyBGaXJzdCwgbWFrZSBzdXJlIHRvIHNldCB0aGUgZW52aXJvbm1lbnQgdmFyaWFibGUgU1lTTF9QTEFOVFVNTApleHBvcnQgU1lTTF9QTEFOVFVNTD1odHRwOi8vd3d3LnBsYW50dW1sLmNvbS9wbGFudHVtbAoKIyBOb3cgcnVuIHRoZSBzeXNsIHNkIChzZXF1ZW5jZSBkaWFncmFtKSBjb21tYW5kCnN5c2wgaW50cyAtbyAzX3Byb2plY3Quc3ZnIC0tcHJvamVjdCBQcm9qZWN0IDFfcHJvamVjdC5zeXNsCgojIGAtb2AgaXMgdGhlIG91dHB1dCBmaWxlCgojIGAtc2Agc3BlY2lmaWVzIGEgc3RhcnRpbmcgZW5kcG9pbnQgZm9yIHRoZSBzZXF1ZW5jZSBkaWFncmFtIHRvIGluaXRpYXRlCgojICBgcHJvamVjdC5zeXNsYCBpcyB0aGUgaW5wdXQgc3lzbCBmaWxlCgojIHByb2plY3Quc3ZnOgo="
+PlaygroundURL = "http://joshcarp.github.io/sysl-playground/?input=IyBJbiB0aGlzIGV4YW1wbGUgd2lsbCB1c2UgYSBzaW1wbGUgc3lzdGVtIGFuZCBzdGFydCB1c2luZyB0aGUgc3lzbCBjb21tYW5kIHRvIGdlbmVyYXRlIGRpYWdyYW1zLgoKCkludGVncmF0ZWRTeXN0ZW06CiAgICBpbnRlZ3JhdGVkX2VuZHBvaW50XzE6CiAgICAgICAgU3lzdGVtMSA8LSBlbmRwb2ludAogICAgaW50ZWdyYXRlZF9lbmRwb2ludF8yOgogICAgICAgIFN5c3RlbTIgPC0gZW5kcG9pbnQKClN5c3RlbTE6CiAgICBlbmRwb2ludDogLi4uClN5c3RlbTI6CiAgICBlbmRwb2ludDogLi4uCgpQcm9qZWN0IFthcHBmbXQ9IiUoYXBwbmFtZSkiXToKICAgIF86CiAgICAgICAgSW50ZWdyYXRlZFN5c3RlbQogICAgICAgIFN5c3RlbTEKICAgICAgICBTeXN0ZW0y&cmd=c3lzbCBpbnRzIC1vIDNfcHJvamVjdC5zdmcgLS1wcm9qZWN0IFByb2plY3QgMV9wcm9qZWN0LnN5c2w="
 ID = "integration-diagrams"
 Segs = [[
   
@@ -72,7 +72,7 @@ System2:
 ],
 [
   
-      {CodeEmpty= false,CodeLeading= false,CodeRun= false,CodeRendered="""""",DocsRendered= """""", CodeForJs = """""",Image = "/assets/byexample/images/integration-diagrams7.svg"},
+      {CodeEmpty= false,CodeLeading= false,CodeRun= false,CodeRendered="""""",DocsRendered= """""", CodeForJs = """""",Image = "/assets/byexample/images/integration-diagrams13.svg"},
 
 
 ],

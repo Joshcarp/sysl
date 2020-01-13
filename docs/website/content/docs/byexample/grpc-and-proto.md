@@ -4,7 +4,7 @@ title= "grpc and proto"
 draft= false
 description= ""
 layout= "byexample"
-weight = 11
+weight = 3
 topic = "Web protocals"
 PlaygroundURL = "http://joshcarp.github.io/sysl-playground/?input=&cmd="
 ID = "grpc-and-proto"

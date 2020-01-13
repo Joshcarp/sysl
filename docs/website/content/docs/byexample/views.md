@@ -4,7 +4,7 @@ title= "views"
 draft= false
 description= ""
 layout= "byexample"
-weight = 14
+weight = 6
 topic = "Sysl Transformation Language"
 PlaygroundURL = "http://joshcarp.github.io/sysl-playground/?input=&cmd="
 ID = "views"

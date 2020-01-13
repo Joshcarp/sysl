@@ -4,7 +4,7 @@ title= "Rest and HTTP"
 draft= false
 description= ""
 layout= "byexample"
-weight = 10
+weight = 2
 topic = "Web protocals"
 PlaygroundURL = "http://joshcarp.github.io/sysl-playground/?input=Rm9vOgoKICAgICMgVG8gc3BlY2lmeSBhIHJlc3QgZW5kcG9pbnQgdXNlIC8gdG8gbGV0IHN5c2wga25vdyB0aGF0IHlvdSdyZSB1c2luZyByZXN0CiAgICAvZW5kcG9pbnQ6CgogICAgICAgICMgTm93IHVzZSByZXN0IG1ldGhvZHMgd2l0aCB0aGUgZW5kcG9pbnQKICAgICAgICBQT1NUIChuZXdQb3N0IDw6IHN0cmluZyBbfmJvZHldKToKICAgICAgICAgICAgcmV0dXJuIHN0cmluZwoKICAgICAgICBHRVQgKG5ld1Bvc3QgPDogc3RyaW5nKToKICAgICAgICAgICAgcmV0dXJuIHN0cmluZwo=&cmd="
 ID = "rest-and-http"
