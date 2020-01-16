@@ -1,6 +1,6 @@
 # SyslJS
 
-Javascript Library to parse Sysl language. Sysl is hosted at [https://github.com/anz-bank/sysl].
+Javascript Library to parse Sysl language. Sysl is hosted at [https://github.com/Joshcarp/sysl].
 
 ```
 npm install sysljs

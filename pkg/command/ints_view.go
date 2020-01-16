@@ -6,8 +6,8 @@ import (
 	"strconv"
 	"strings"
 
-	sysl "github.com/anz-bank/sysl/pkg/sysl"
-	"github.com/anz-bank/sysl/pkg/syslutil"
+	sysl "github.com/Joshcarp/sysl/pkg/sysl"
+	"github.com/Joshcarp/sysl/pkg/syslutil"
 )
 
 const ArrowColorNone = "none"

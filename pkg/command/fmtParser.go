@@ -4,7 +4,7 @@ import (
 	"regexp"
 	"strings"
 
-	sysl "github.com/anz-bank/sysl/pkg/sysl"
+	sysl "github.com/Joshcarp/sysl/pkg/sysl"
 	log "github.com/sirupsen/logrus"
 )
 

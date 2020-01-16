@@ -7,8 +7,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/anz-bank/sysl/pkg/mod"
-	"github.com/anz-bank/sysl/pkg/sysl"
+	"github.com/Joshcarp/sysl/pkg/mod"
+	"github.com/Joshcarp/sysl/pkg/sysl"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/afero"
 	"gopkg.in/alecthomas/kingpin.v2"

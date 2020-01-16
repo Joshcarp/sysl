@@ -30,7 +30,7 @@ toc: true
 Protocol buffers is a "language-neutral, platform-neutral, extensible mechanism for serializing structured data – think XML, but smaller, faster, and simpler". It is a strongly typed binary format used as intermediate representations of Sysl definitions comparable to an abstract syntax tree. The strongly typed protocol buffers are supported in most major programming languages.
 
 Please refer to our developer documentation on how to compile the Protobuf definitions to your preferred porgramming language in order to [create your own Sysl extension]
-(https://github.com/anz-bank/sysl#extending-sysl). If you want to generate human readable, text-based Protobuf output use the `textpb` command.
+(https://github.com/Joshcarp/sysl#extending-sysl). If you want to generate human readable, text-based Protobuf output use the `textpb` command.
 
 For the following contents of `hello.sysl`
 

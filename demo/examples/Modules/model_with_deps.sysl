@@ -1,5 +1,5 @@
 import deps
-import github.com/anz-bank/sysl/tests/bananatree
+import github.com/Joshcarp/sysl/tests/bananatree
 
 ModelWithDeps [package="model"]:
   !type Response:

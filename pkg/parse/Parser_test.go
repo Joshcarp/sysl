@@ -10,10 +10,10 @@ import (
 
 	"github.com/pmezard/go-difflib/difflib"
 
-	"github.com/anz-bank/sysl/pkg/msg"
-	"github.com/anz-bank/sysl/pkg/pbutil"
-	"github.com/anz-bank/sysl/pkg/sysl"
-	"github.com/anz-bank/sysl/pkg/syslutil"
+	"github.com/Joshcarp/sysl/pkg/msg"
+	"github.com/Joshcarp/sysl/pkg/pbutil"
+	"github.com/Joshcarp/sysl/pkg/sysl"
+	"github.com/Joshcarp/sysl/pkg/syslutil"
 	"github.com/golang/protobuf/proto"
 	"github.com/pkg/errors"
 	"github.com/spf13/afero"

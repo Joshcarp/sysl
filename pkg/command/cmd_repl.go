@@ -3,7 +3,7 @@ package command
 import (
 	"os"
 
-	"github.com/anz-bank/sysl/pkg/eval"
+	"github.com/Joshcarp/sysl/pkg/eval"
 	"gopkg.in/alecthomas/kingpin.v2"
 )
 

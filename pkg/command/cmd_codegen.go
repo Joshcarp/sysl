@@ -3,9 +3,9 @@ package command
 import (
 	"fmt"
 
-	"github.com/anz-bank/sysl/pkg/eval"
-	"github.com/anz-bank/sysl/pkg/syslutil"
-	"github.com/anz-bank/sysl/pkg/validate"
+	"github.com/Joshcarp/sysl/pkg/eval"
+	"github.com/Joshcarp/sysl/pkg/syslutil"
+	"github.com/Joshcarp/sysl/pkg/validate"
 	"gopkg.in/alecthomas/kingpin.v2"
 )
 

@@ -1,7 +1,7 @@
 package syslutil
 
 import (
-	sysl "github.com/anz-bank/sysl/pkg/sysl"
+	sysl "github.com/Joshcarp/sysl/pkg/sysl"
 )
 
 // GetTypeDetail returns name of the type and details in string format

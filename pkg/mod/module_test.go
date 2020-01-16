@@ -43,10 +43,10 @@ func TestGetByFilepathWithNilMods(t *testing.T) {
 func TestFind(t *testing.T) {
 	t.Parallel()
 
-	filename := "github.com/anz-bank/sysl/demo/examples/Modules/deps.sysl"
+	filename := "github.com/Joshcarp/sysl/demo/examples/Modules/deps.sysl"
 	mod, err := Find(filename)
 	assert.Nil(t, err)
-	assert.Equal(t, "github.com/anz-bank/sysl", mod.Name)
+	assert.Equal(t, "github.com/Joshcarp/sysl", mod.Name)
 }
 
 func TestFindWithWrongPath(t *testing.T) {

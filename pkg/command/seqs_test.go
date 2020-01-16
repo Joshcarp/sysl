@@ -5,8 +5,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/anz-bank/sysl/pkg/parse"
-	"github.com/anz-bank/sysl/pkg/syslutil"
+	"github.com/Joshcarp/sysl/pkg/parse"
+	"github.com/Joshcarp/sysl/pkg/syslutil"
 	"github.com/sirupsen/logrus/hooks/test"
 	"github.com/spf13/afero"
 	"github.com/stretchr/testify/assert"

@@ -6,9 +6,9 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/anz-bank/sysl/pkg/syslutil"
+	"github.com/Joshcarp/sysl/pkg/syslutil"
 
-	"github.com/anz-bank/sysl/pkg/parser"
+	"github.com/Joshcarp/sysl/pkg/parser"
 	"github.com/sirupsen/logrus"
 )
 

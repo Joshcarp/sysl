@@ -1,13 +1,13 @@
 # Sysl
 
-[![GitHub Actions Go-Darwin status](https://github.com/anz-bank/sysl/workflows/Go-Darwin/badge.svg)](.)
-[![GitHub Actions Go-Linux status](https://github.com/anz-bank/sysl/workflows/Go-Linux/badge.svg)](.)
-[![GitHub Actions node-linux status](https://github.com/anz-bank/sysl/workflows/node-linux/badge.svg)](.)
+[![GitHub Actions Go-Darwin status](https://github.com/Joshcarp/sysl/workflows/Go-Darwin/badge.svg)](.)
+[![GitHub Actions Go-Linux status](https://github.com/Joshcarp/sysl/workflows/Go-Linux/badge.svg)](.)
+[![GitHub Actions node-linux status](https://github.com/Joshcarp/sysl/workflows/node-linux/badge.svg)](.)
 
 
-[![AppVeyor build](https://img.shields.io/appveyor/ci/anz-bank/sysl/master.svg?logo=appveyor)](https://ci.appveyor.com/project/anz-bank/sysl/branch/master)
-[![Codecov](https://img.shields.io/codecov/c/github/anz-bank/sysl/master.svg)](https://codecov.io/gh/anz-bank/sysl/branch/master)
-[![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg)](https://gitter.im/anz-bank/sysl)
+[![AppVeyor build](https://img.shields.io/appveyor/ci/Joshcarp/sysl/master.svg?logo=appveyor)](https://ci.appveyor.com/project/Joshcarp/sysl/branch/master)
+[![Codecov](https://img.shields.io/codecov/c/github/Joshcarp/sysl/master.svg)](https://codecov.io/gh/Joshcarp/sysl/branch/master)
+[![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg)](https://gitter.im/Joshcarp/sysl)
 
 Sysl (pronounced "sizzle") is a system specification language. Using Sysl, you
 can specify systems, endpoints, endpoint behaviour, data models and data

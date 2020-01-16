@@ -369,7 +369,7 @@ Model:
     body <:
       details <: string
 ```
-At the moment, reljam does not generate code for this. See issue [#155](https://github.com/anz-bank/sysl/issues/155).
+At the moment, reljam does not generate code for this. See issue [#155](https://github.com/Joshcarp/sysl/issues/155).
 
 #### Events, publisher and subscriber
 

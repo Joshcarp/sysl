@@ -17,7 +17,7 @@ sysl data -o "3_project.svg" -j Project 1_project.sysl
 
 # NOTE: there is currently a bug where data-types defined in different applications don't render correctly
 
-# See https://github.com/anz-bank/sysl/issues/474 for progress updates
+# See https://github.com/Joshcarp/sysl/issues/474 for progress updates
 
 # project.svg:
 

@@ -5,8 +5,8 @@ import (
 	"path/filepath"
 	"testing"
 
-	sysl "github.com/anz-bank/sysl/pkg/sysl"
-	"github.com/anz-bank/sysl/pkg/syslutil"
+	sysl "github.com/Joshcarp/sysl/pkg/sysl"
+	"github.com/Joshcarp/sysl/pkg/syslutil"
 	"github.com/golang/protobuf/jsonpb"
 	"github.com/sirupsen/logrus/hooks/test"
 	"github.com/stretchr/testify/assert"

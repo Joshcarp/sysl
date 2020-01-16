@@ -5,7 +5,7 @@ import (
 	"sort"
 	"strings"
 
-	proto "github.com/anz-bank/sysl/pkg/sysl"
+	proto "github.com/Joshcarp/sysl/pkg/sysl"
 )
 
 const relationArrow = `}--`

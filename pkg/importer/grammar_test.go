@@ -5,7 +5,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/anz-bank/sysl/pkg/parser"
+	"github.com/Joshcarp/sysl/pkg/parser"
 )
 
 func Test_SimpleChoiceConversion(t *testing.T) {

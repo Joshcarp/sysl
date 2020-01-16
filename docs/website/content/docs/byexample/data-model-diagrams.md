@@ -78,7 +78,7 @@ App:
       {CodeEmpty= true,CodeLeading= true,CodeRun= false,CodeRendered="""""",DocsRendered= """<p>NOTE: there is currently a bug where data-types defined in different applications don&rsquo;t render correctly</p>
 """, CodeForJs = """""",Image = ""},
 
-      {CodeEmpty= true,CodeLeading= true,CodeRun= false,CodeRendered="""""",DocsRendered= """<p>See <a href="https://github.com/anz-bank/sysl/issues/474">https://github.com/anz-bank/sysl/issues/474</a> for progress updates</p>
+      {CodeEmpty= true,CodeLeading= true,CodeRun= false,CodeRendered="""""",DocsRendered= """<p>See <a href="https://github.com/Joshcarp/sysl/issues/474">https://github.com/Joshcarp/sysl/issues/474</a> for progress updates</p>
 """, CodeForJs = """""",Image = ""},
 
       {CodeEmpty= true,CodeLeading= false,CodeRun= false,CodeRendered="""""",DocsRendered= """<p>project.svg:</p>

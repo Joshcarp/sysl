@@ -1,7 +1,7 @@
 package exporter
 
 import (
-	proto "github.com/anz-bank/sysl/pkg/sysl"
+	proto "github.com/Joshcarp/sysl/pkg/sysl"
 	yaml "github.com/ghodss/yaml"
 	"github.com/go-openapi/spec"
 	"github.com/sirupsen/logrus"

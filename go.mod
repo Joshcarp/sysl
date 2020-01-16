@@ -1,4 +1,4 @@
-module github.com/anz-bank/sysl
+module github.com/Joshcarp/sysl
 
 go 1.13
 

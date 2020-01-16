@@ -12,10 +12,10 @@ import (
 	"github.com/sirupsen/logrus"
 
 	"github.com/antlr/antlr4/runtime/Go/antlr"
-	parser "github.com/anz-bank/sysl/pkg/grammar"
-	"github.com/anz-bank/sysl/pkg/parse"
+	parser "github.com/Joshcarp/sysl/pkg/grammar"
+	"github.com/Joshcarp/sysl/pkg/parse"
 
-	sysl "github.com/anz-bank/sysl/pkg/sysl"
+	sysl "github.com/Joshcarp/sysl/pkg/sysl"
 )
 
 type DebugFunc func(scope *Scope, app *sysl.Application, expr *sysl.Expr) error

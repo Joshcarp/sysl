@@ -3,8 +3,8 @@ package command
 import (
 	"sort"
 
-	sysl "github.com/anz-bank/sysl/pkg/sysl"
-	"github.com/anz-bank/sysl/pkg/syslutil"
+	sysl "github.com/Joshcarp/sysl/pkg/sysl"
+	"github.com/Joshcarp/sysl/pkg/syslutil"
 )
 
 type intsBuilder struct {

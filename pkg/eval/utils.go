@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"reflect"
 
-	sysl "github.com/anz-bank/sysl/pkg/sysl"
+	sysl "github.com/Joshcarp/sysl/pkg/sysl"
 )
 
 type exprData struct {

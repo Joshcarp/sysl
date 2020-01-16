@@ -3,8 +3,8 @@ package eval
 import (
 	"strings"
 
-	sysl "github.com/anz-bank/sysl/pkg/sysl"
-	"github.com/anz-bank/sysl/pkg/syslutil"
+	sysl "github.com/Joshcarp/sysl/pkg/sysl"
+	"github.com/Joshcarp/sysl/pkg/syslutil"
 	log "github.com/sirupsen/logrus"
 )
 

@@ -5,7 +5,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/anz-bank/sysl/pkg/sysl"
+	"github.com/Joshcarp/sysl/pkg/sysl"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/afero"

@@ -7,11 +7,11 @@ import (
 	"github.com/spf13/afero"
 	"github.com/stretchr/testify/require"
 
-	"github.com/anz-bank/sysl/pkg/msg"
-	"github.com/anz-bank/sysl/pkg/parse"
-	"github.com/anz-bank/sysl/pkg/syslutil"
+	"github.com/Joshcarp/sysl/pkg/msg"
+	"github.com/Joshcarp/sysl/pkg/parse"
+	"github.com/Joshcarp/sysl/pkg/syslutil"
 
-	sysl "github.com/anz-bank/sysl/pkg/sysl"
+	sysl "github.com/Joshcarp/sysl/pkg/sysl"
 	"github.com/stretchr/testify/assert"
 )
 

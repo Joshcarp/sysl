@@ -3,7 +3,7 @@ package eval
 import (
 	"fmt"
 
-	sysl "github.com/anz-bank/sysl/pkg/sysl"
+	sysl "github.com/Joshcarp/sysl/pkg/sysl"
 	"github.com/pkg/errors"
 )
 

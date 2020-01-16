@@ -5,7 +5,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/anz-bank/sysl/pkg/syslutil"
+	"github.com/Joshcarp/sysl/pkg/syslutil"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -31,7 +31,7 @@ func TestOpenLocalFile(t *testing.T) {
 func TestOpenRemoteFile(t *testing.T) {
 	t.Parallel()
 
-	filename := "github.com/anz-bank/sysl/demo/examples/Modules/deps.sysl"
+	filename := "github.com/Joshcarp/sysl/demo/examples/Modules/deps.sysl"
 	_, memfs := syslutil.WriteToMemOverlayFs("/")
 	fs := NewFs(memfs)
 	f, err := fs.Open(filename)

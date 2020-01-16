@@ -3,7 +3,7 @@ package command
 import (
 	"testing"
 
-	"github.com/anz-bank/sysl/pkg/syslutil"
+	"github.com/Joshcarp/sysl/pkg/syslutil"
 
 	"github.com/spf13/afero"
 	"github.com/stretchr/testify/assert"

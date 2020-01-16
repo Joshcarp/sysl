@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	proto "github.com/anz-bank/sysl/pkg/sysl"
+	proto "github.com/Joshcarp/sysl/pkg/sysl"
 	"github.com/go-openapi/spec"
 	"github.com/sirupsen/logrus"
 )

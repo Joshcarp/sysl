@@ -12,7 +12,7 @@ Sysl is a CLI (Command Line Interface) that executes with the `sysl` command.
 
 Install it with
 
-    GO111MODULE=on go get github.com/anz-bank/sysl/cmd/sysl@v0.4.0
+    GO111MODULE=on go get github.com/Joshcarp/sysl/cmd/sysl@v0.4.0
 
 Note: Do NOT run it from inside a Go source directory that is module enabled,
 otherwise it gets added to go.mod/go.sum.

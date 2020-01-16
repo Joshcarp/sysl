@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/anz-bank/sysl/pkg/pbutil"
+	"github.com/Joshcarp/sysl/pkg/pbutil"
 	"github.com/sirupsen/logrus"
 	"gopkg.in/alecthomas/kingpin.v2"
 )

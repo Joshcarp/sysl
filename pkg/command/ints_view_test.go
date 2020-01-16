@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	sysl "github.com/anz-bank/sysl/pkg/sysl"
+	sysl "github.com/Joshcarp/sysl/pkg/sysl"
 	"github.com/golang/protobuf/proto"
 	"github.com/stretchr/testify/assert"
 )

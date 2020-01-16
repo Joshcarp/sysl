@@ -6,13 +6,13 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/anz-bank/sysl/pkg/importer"
+	"github.com/Joshcarp/sysl/pkg/importer"
 
 	"github.com/antlr/antlr4/runtime/Go/antlr"
-	parser "github.com/anz-bank/sysl/pkg/grammar"
-	"github.com/anz-bank/sysl/pkg/msg"
-	sysl "github.com/anz-bank/sysl/pkg/sysl"
-	"github.com/anz-bank/sysl/pkg/syslutil"
+	parser "github.com/Joshcarp/sysl/pkg/grammar"
+	"github.com/Joshcarp/sysl/pkg/msg"
+	sysl "github.com/Joshcarp/sysl/pkg/sysl"
+	"github.com/Joshcarp/sysl/pkg/syslutil"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/afero"
