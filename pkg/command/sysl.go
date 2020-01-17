@@ -200,9 +200,9 @@ func Main2(
 	args []string,
 	fs afero.Fs,
 	logger *logrus.Logger,
-	Main3 func(args []string, fs afero.Fs, logger *logrus.Logger) error,
+	main3 func(args []string, fs afero.Fs, logger *logrus.Logger) error,
 ) int {
-	if err := Main3(args, fs, logger); err != nil {
+	if err := main3(args, fs, logger); err != nil {
 		logger.Errorln(err.Error())
 		if err, ok := err.(parse.Exit); ok {
 			return err.Code
