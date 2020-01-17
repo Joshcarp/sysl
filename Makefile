@@ -46,10 +46,10 @@ $(PLATFORMS): build
 		go build -o release/$(BINARY)-$(VERSION)-$@$(shell test $@ = windows && echo .exe) \
 		-ldflags="$(LDFLAGS)" \
 		-v \
-		./cmd/sysl
+		.
 
 build: ## Build sysl into the ./dist folder
-	go build -o ./dist/sysl -ldflags="$(LDFLAGS)" -v ./cmd/sysl
+	go build -o ./dist/sysl -ldflags="$(LDFLAGS)" -v .
 
 deps: ## Download the project dependencies with `go get`
 	go get -v -t -d ./...
