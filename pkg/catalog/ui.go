@@ -6,7 +6,6 @@ package catalog
 import (
 	"encoding/json"
 	"fmt"
-	"net"
 	"net/http"
 	"net/url"
 	"path"
@@ -56,16 +55,13 @@ func (s *Server) SwaggerUI(contents []byte) http.Handler {
 		s.Path = "/"
 	}
 
-	listener, err := net.Listen("tcp4", s.Host)
+	// listener, err := net.Listen("tcp4", s.Host)
+	// if err != nil {
+	// 	panic(err)
+	// }
+	sh, sp, err := swag.SplitHostPort(s.Host)
 	if err != nil {
 		panic(err)
-	}
-	sh, sp, err := swag.SplitHostPort(listener.Addr().String())
-	if err != nil {
-		panic(err)
-	}
-	if sh == "0.0.0.0" {
-		sh = "localhost"
 	}
 	visit := s.DocURL
 	handler := http.NotFoundHandler()
