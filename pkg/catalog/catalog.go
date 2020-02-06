@@ -20,6 +20,8 @@ import (
 	"net/http"
 
 	"github.com/anz-bank/sysl/pkg/exporter"
+	"github.com/anz-bank/sysl/pkg/mod"
+	"github.com/anz-bank/sysl/pkg/parse"
 	"github.com/anz-bank/sysl/pkg/sysl"
 	"github.com/anz-bank/sysl/pkg/syslutil"
 	"github.com/fullstorydev/grpcui/standalone"
@@ -28,22 +30,41 @@ import (
 // Server to set context of catalog
 // Todo: Simplify this
 type Server struct {
-	Fs       afero.Fs       // Required
-	Log      *logrus.Logger // Required
-	Modules  []*sysl.Module // Required
-	Fields   []string       // Required
-	Host     string         // Required
-	services []*WebService
-	router   *mux.Router
-	BasePath string
+	Fs         afero.Fs       // Required
+	Log        *logrus.Logger // Required
+	Modules    []*sysl.Module // Required
+	Fields     []string       // Required
+	Host       string         // Required
+	Mod        bool
+	ImportPath string
+	services   []*WebService
+	router     *mux.Router
+	BasePath   string
 }
 
 func (s *Server) Setup() {
+	s.router = mux.NewRouter()
+	s.Mod = true
 	if s.BasePath == "" {
 		s.BasePath = "/"
 	}
 	s.router = mux.NewRouter()
+	if s.Mod {
+		return
+	}
 	s.routes()
+}
+
+func LoadFromRemote(filename string) *sysl.Module {
+	if filename[0] == '/' {
+		filename = filename[1:]
+	}
+	_, memfs := syslutil.WriteToMemOverlayFs("/")
+	fs := mod.NewFs(memfs)
+	fs.Open(filename)
+	m, _ := parse.NewParser().Parse(filename, fs)
+	fmt.Println(m, filename)
+	return m
 }
 
 // WebService is the type which will be rendered on the home page of the html/json as a row
@@ -58,7 +79,11 @@ type WebService struct {
 }
 
 func (c *Server) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-	fmt.Println(r.URL)
+	if c.Mod {
+		c.Modules = []*sysl.Module{LoadFromRemote(r.URL.String()[1:])}
+		c.ImportPath = r.URL.String()
+		c.routes()
+	}
 	c.router.ServeHTTP(w, r)
 }
 
@@ -68,9 +93,16 @@ func (c *Server) routes() {
 		c.Log.Info(err)
 	}
 	html, err := renderHTML(services)
+	h := c.ListHandlers(html, "html", "/")
+	if c.Mod {
+		h = http.StripPrefix(c.ImportPath, h)
+	}
+	c.router.Handle(c.ImportPath, h)
 
-	c.router.HandleFunc("/", c.ListHandlers(html, "html", "/"))
 	for _, service := range services {
+		if c.Mod {
+			service.handler = http.StripPrefix(c.ImportPath, service.handler)
+		}
 		c.router.PathPrefix(service.SwaggerUILink).Handler(service.handler)
 	}
 
@@ -205,18 +237,27 @@ func (service *WebService) SwaggerUIHandler() (http.Handler, error) {
 	return service.SwaggerUI(output), nil
 }
 
-// ListHandlers registers handlers for both the homepage, if t is json the header will be set as json content type
-func (c *Server) ListHandlers(contents []byte, t string, pattern string) http.HandlerFunc {
-	return func(w http.ResponseWriter, r *http.Request) {
-		if t == "json" {
-			w.Header().Set("Content-Type", "application/json")
-			w.WriteHeader(http.StatusCreated)
-		}
-		_, err := w.Write(contents)
-		if err != nil {
-			panic(err)
-		}
+type Home struct {
+	contents []byte
+	t        string
+}
+
+func (h Home) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("yisdfods", h.contents)
+	if h.t == "json" {
+		w.Header().Set("Content-Type", "application/json")
+		w.WriteHeader(http.StatusCreated)
 	}
+	_, err := w.Write(h.contents)
+	if err != nil {
+		panic(err)
+	}
+}
+
+// ListHandlers registers handlers for both the homepage, if t is json the header will be set as json content type
+func (c *Server) ListHandlers(contents []byte, t string, pattern string) http.Handler {
+	return Home{contents: contents, t: t}
+
 }
 
 func removeTrailingSlash(next http.Handler) http.Handler {
