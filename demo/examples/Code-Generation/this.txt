@@ -1,0 +1,4 @@
+which sysl
+/Users/carpeggj/go/bin/sysl
+# go fmt /*.go
+# goimports -w /*.go
