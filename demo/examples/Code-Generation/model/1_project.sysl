@@ -1,0 +1,13 @@
+Simple[package="simple"]:
+    @basePath = "simple"
+
+    /stuff:
+        GET:
+            return ok <: Stuff
+
+    !type Stuff:
+        innerStuff <: string:
+            @json_tag = "innerStuff"
+        sensitiveStuff <: string:
+            @json_tag = "sensitiveStuff"
+            @sensitive = "true"
