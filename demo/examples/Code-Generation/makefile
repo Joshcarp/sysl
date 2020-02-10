@@ -20,7 +20,7 @@ setup:
 	git clone https://github.service.anz/sysl/server-lib/ .tmp/server-lib || true  # Don't fail 
 	cd  .tmp/server-lib  && git fetch && git pull && cd ../..
 
-# Generate files with internal service
+# Generate files with internal git service
 gen: */*
 		export GOPRIVATE="github.service.anz"
 		$(foreach file, $(TRANSFORMS), $(shell sysl codegen --transform $(file) --grammar ${GRAMMAR} --start ${START}  --outdir=output --app-name ${APPNAME} ${MODEL}))
