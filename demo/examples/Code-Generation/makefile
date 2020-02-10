@@ -2,11 +2,11 @@
 # if this script doesn't run, try running `pip2 uninstall sysl` or
 # `pip uninstall sysl` as make might be running an old sysl version
 
-MODEL=model/1_project.sysl
-TRANSFORMS=$(wildcard server-lib/codegen/transforms/*.sysl)
-GRAMMAR=$(wildcard server-lib/codegen/grammars/go.gen.g)
+TMP = .tmp# Cache the server lib directory in tmp
+
+TRANSFORMS=$(wildcard .tmp/server-lib/codegen/transforms/*.sysl)
+GRAMMAR=$(wildcard .tmp/server-lib/codegen/grammars/go.gen.g)
 START=goFile
-TMP=.tmp
 OUTPUT=output
 APPNAME=Simple
 
@@ -16,16 +16,24 @@ all: setup this
 
 # try to clone, then try to fetch and pull
 setup:
+	@echo --------------------------------------------------------
+	@echo Syncing server-lib ....
 	set -e
-	git clone https://github.service.anz/sysl/server-lib/ .tmp/server-lib || true  # Don't fail 
-	cd  .tmp/server-lib  && git fetch && git pull && cd ../..
+	git clone https://github.service.anz/sysl/server-lib/ $(TMP)/server-lib || true  # Don't fail 
+	cd  $(TMP) && git fetch && git pull && cd ../.. && \
+	cp -rf $(TMP) $(TMP)
+	echo Fetching Success 
+	@echo --------------------------------------------------------
 
 # Generate files with internal git service
-gen: */*
-		export GOPRIVATE="github.service.anz"
-		$(foreach file, $(TRANSFORMS), $(shell sysl codegen --transform $(file) --grammar ${GRAMMAR} --start ${START}  --outdir=output --app-name ${APPNAME} ${MODEL}))
-		go fmt ${OUTPUT}/*.go
-		goimports -w ${OUTPUT}/*.go
+gen:
+	@echo --------------------------------------------------------
+	@echo Running sysl transforms ....
+	export GOPRIVATE="github.service.anz"
+	$(foreach file, $(TRANSFORMS), $(shell sysl codegen --transform $(file) --grammar ${GRAMMAR} --start ${START} --outdir=output --app-name ${APPNAME} $(input)))
+	gofmt -s -w .
+	goimports -w .
+	@echo --------------------------------------------------------
 
 clean:
-	rm -rf .tmp
+	rm -rf $(TMP)
