@@ -11,7 +11,7 @@ OUTPUT=output
 APPNAME=Simple
 
 # Always execute these with just `make`
-.PHONY: download clean gen
+.PHONY: setup clean gen
 all: setup gen clean
 
 # try to clone, then try to fetch and pull
@@ -23,7 +23,7 @@ setup:
 	@cd  $(SERVERLIB)/server-lib && git fetch && git pull && cd ../..
 	@mkdir -p $(TMP)/server-lib/
 	@echo Copying server-lib to $(TMP)
-	@cp -rf $(SERVERLIB)/server-lib $(TMP)/server-lib/
+	@cp -rf $(SERVERLIB)/server-lib $(TMP)/
 	@echo Fetching Success 
 	@echo --------------------------------------------------------
 
@@ -32,13 +32,34 @@ gen:
 	@echo --------------------------------------------------------
 	@echo Running sysl transforms ....
 	@export GOPRIVATE="github.service.anz"
-	$(foreach file, $(TRANSFORMS), $(shell sysl codegen --transform $(file) --grammar ${GRAMMAR} --start ${START} --app-name ${APPNAME} $(input)))
-	@gofmt -s -w output/*
-	@goimports -w output/*
+	$(foreach file, $(TRANSFORMS), $(shell sysl codegen --transform $(file) --grammar ${GRAMMAR} --start ${START} --outdir=${OUTPUT} --app-name ${APPNAME} $(input)))
+	gofmt -s -w output/*
+	goimports -w output/*
 	@echo --------------------------------------------------------
 
 clean:
 	@echo --------------------------------------------------------
-	@echo cleaning up $(TMP)
+	echo cleaning up $(TMP)
 	rm -rf $(TMP)
 	@echo --------------------------------------------------------
+
+handler:
+	mkdir implementation || true
+	echo package implementation >> implementation/gencallback.go
+	impl -dir simple 'g Callback' simple.GenCallback >> implementation/callback.go
+
+	echo package implementation >> implementation/methods.go
+	
+	echo package implementation >> implementation/resthandler.go
+	echo type RestHandler struct { >> implementation/callback.go
+	echo Router             []handlerinitialiser.HandlerInitialiser >> implementation/callback.go
+	echo ServerConfig       *config.CommonHTTPServerConfig >> implementation/callback.go
+	echo MAdminServerConfig *config.CommonHTTPServerConfig >> implementation/callback.go
+	echo MLibraryConfig     *config.LibraryConfig >> implementation/callback.go
+	echo } >> implementation/callback.go
+	
+
+	impl -dir simple 'r Handler' simple.GenCallback >> implementation/callback.go
+
+
+
