@@ -46,20 +46,18 @@ clean:
 handler:
 	mkdir implementation || true
 	echo package implementation >> implementation/gencallback.go
-	impl -dir simple 'g Callback' simple.GenCallback >> implementation/callback.go
+	impl -dir simple 'g Callback' simple.GenCallback >> implementation/gencallback.go
 
 	echo package implementation >> implementation/methods.go
 	
 	echo package implementation >> implementation/resthandler.go
-	echo type RestHandler struct { >> implementation/callback.go
-	echo Router             []handlerinitialiser.HandlerInitialiser >> implementation/callback.go
-	echo ServerConfig       *config.CommonHTTPServerConfig >> implementation/callback.go
-	echo MAdminServerConfig *config.CommonHTTPServerConfig >> implementation/callback.go
-	echo MLibraryConfig     *config.LibraryConfig >> implementation/callback.go
-	echo } >> implementation/callback.go
-	
-
-	impl -dir simple 'r Handler' simple.GenCallback >> implementation/callback.go
+	echo type RestHandler struct { >> implementation/resthandler.go
+	echo Router             []handlerinitialiser.HandlerInitialiser >> implementation/resthandler.go
+	echo ServerConfig       *config.CommonHTTPServerConfig >> implementation/resthandler.go
+	echo MAdminServerConfig *config.CommonHTTPServerConfig >> implementation/resthandler.go
+	echo MLibraryConfig     *config.LibraryConfig >> implementation/resthandler.go
+	echo } >> implementation/resthandler.go
+	impl -dir simple 'r Handler' simple.GenCallback >> implementation/resthandler.go
 
 
 
