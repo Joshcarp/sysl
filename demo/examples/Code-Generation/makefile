@@ -32,7 +32,7 @@ gen:
 	@echo --------------------------------------------------------
 	@echo Running sysl transforms ....
 	@export GOPRIVATE="github.service.anz"
-	$(foreach file, $(TRANSFORMS), $(shell sysl codegen --transform $(file) --grammar ${GRAMMAR} --start ${START} --outdir=output --app-name ${APPNAME} $(input)))
+	$(foreach file, $(TRANSFORMS), $(shell sysl codegen --transform $(file) --grammar ${GRAMMAR} --start ${START} --app-name ${APPNAME} $(input)))
 	@gofmt -s -w output/*
 	@goimports -w output/*
 	@echo --------------------------------------------------------
