@@ -4,10 +4,12 @@
 
 TMP = .tmp# Cache the server lib directory in tmp
 SERVERLIB = /var/tmp
-TRANSFORMS=$(wildcard .tmp/server-lib/codegen/transforms/*.sysl)
+TRANSLOCATION = .tmp/server-lib/codegen/transforms
+# TRANSFORMS =$(wildcard .tmp/server-lib/codegen/transforms/*.sysl)
+TRANSFORMS= svc_error_types.sysl svc_handler.sysl svc_interface.sysl svc_router.sysl svc_types.sysl
 GRAMMAR=$(wildcard .tmp/server-lib/codegen/grammars/go.gen.g)
 START=goFile
-OUTPUT=output
+OUTPUT=simple
 APPNAME=Simple
 
 # Always execute these with just `make`
@@ -32,9 +34,9 @@ gen:
 	@echo --------------------------------------------------------
 	@echo Running sysl transforms ....
 	@export GOPRIVATE="github.service.anz"
-	$(foreach file, $(TRANSFORMS), $(shell sysl codegen --transform $(file) --grammar ${GRAMMAR} --start ${START} --outdir=${OUTPUT} --app-name ${APPNAME} $(input)))
-	gofmt -s -w output/*
-	goimports -w output/*
+	@$(foreach file, $(TRANSFORMS), $(shell sysl codegen --transform $(TRANSLOCATION)/$(file) --grammar ${GRAMMAR} --start ${START} --outdir=${OUTPUT} --app-name ${APPNAME} $(input)))
+	gofmt -s -w $(OUTPUT)/*
+	goimports -w $(OUTPUT)/*
 	@echo --------------------------------------------------------
 
 clean:
@@ -42,22 +44,3 @@ clean:
 	echo cleaning up $(TMP)
 	rm -rf $(TMP)
 	@echo --------------------------------------------------------
-
-handler:
-	mkdir implementation || true
-	echo package implementation >> implementation/gencallback.go
-	impl -dir simple 'g Callback' simple.GenCallback >> implementation/gencallback.go
-
-	echo package implementation >> implementation/methods.go
-	
-	echo package implementation >> implementation/resthandler.go
-	echo type RestHandler struct { >> implementation/resthandler.go
-	echo Router             []handlerinitialiser.HandlerInitialiser >> implementation/resthandler.go
-	echo ServerConfig       *config.CommonHTTPServerConfig >> implementation/resthandler.go
-	echo MAdminServerConfig *config.CommonHTTPServerConfig >> implementation/resthandler.go
-	echo MLibraryConfig     *config.LibraryConfig >> implementation/resthandler.go
-	echo } >> implementation/resthandler.go
-	impl -dir simple 'r Handler' simple.GenCallback >> implementation/resthandler.go
-
-
-

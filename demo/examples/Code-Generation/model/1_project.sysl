@@ -6,8 +6,5 @@ Simple[package="simple"]:
             return ok <: Stuff
 
     !type Stuff:
-        innerStuff <: string:
-            @json_tag = "innerStuff"
-        sensitiveStuff <: string:
-            @json_tag = "sensitiveStuff"
-            @sensitive = "true"
+        Content <: string:
+            @json_tag = "Content"

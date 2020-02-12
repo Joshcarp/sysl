@@ -7,5 +7,5 @@ import (
 )
 
 func GetStuffList(ctx context.Context, req *simple.GetStuffListRequest, client simple.GetStuffListClient) (*simple.Stuff, error) {
-	return &simple.Stuff{InnerStuff: "response"}, nil
+	return &simple.Stuff{Content: "response"}, nil
 }

@@ -5,7 +5,6 @@ import (
 	"time"
 
 	"github.com/rickb777/date"
-	"github.service.anz/sysl/server-lib/common"
 	"github.service.anz/sysl/server-lib/validator"
 )
 
@@ -17,8 +16,7 @@ var _ = date.Parse
 
 // Stuff ...
 type Stuff struct {
-	InnerStuff     string                 `json:"innerStuff"`
-	SensitiveStuff common.SensitiveString `json:"sensitiveStuff"`
+	Content string `json:"Content"`
 }
 
 // GetStuffListRequest ...

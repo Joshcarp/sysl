@@ -7,6 +7,7 @@ import (
 
 	"github.com/go-chi/chi"
 	"github.service.anz/sysl/server-lib/common"
+	"github.service.anz/sysl/server-lib/core"
 	"github.service.anz/sysl/server-lib/handlerinitialiser"
 	"github.service.anz/sysl/server-lib/validator"
 )
@@ -27,19 +28,20 @@ type Router interface {
 
 // ServiceRouter for Simple API
 type ServiceRouter struct {
-	gc         GenCallback
-	svcHandler *ServiceHandler
+	gc               GenCallback
+	svcHandler       *ServiceHandler
+	basePathFromSpec string
 }
 
 // NewServiceRouter creates a new service router for Simple
 func NewServiceRouter(gc GenCallback, svcHandler *ServiceHandler) handlerinitialiser.HandlerInitialiser {
-	return &ServiceRouter{gc, svcHandler}
+	return &ServiceRouter{gc, svcHandler, "simple"}
 }
 
 // WireRoutes ...
 //nolint:funlen
 func (s *ServiceRouter) WireRoutes(ctx context.Context, r chi.Router) {
-	r.Route(s.gc.BasePath(), func(r chi.Router) {
+	r.Route(core.SelectBasePath(s.basePathFromSpec, s.gc.BasePath()), func(r chi.Router) {
 		s.gc.AddMiddleware(ctx, r)
 		r.Get("/stuff", s.svcHandler.GetStuffListHandler)
 	})
