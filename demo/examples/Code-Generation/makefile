@@ -22,7 +22,7 @@ setup:
 	@echo Syncing server-lib to $(SERVERLIB)
 	@set -e
 	@git clone https://github.service.anz/sysl/server-lib/ $(SERVERLIB)/server-lib || true  # Don't fail 
-	@cd  $(SERVERLIB)/server-lib && git fetch && git pull && cd ../..
+	@cd  $(SERVERLIB)/server-lib && git fetch && git checkout tags/v0.1.8
 	@mkdir -p $(TMP)/server-lib/
 	@echo Copying server-lib to $(TMP)
 	@cp -rf $(SERVERLIB)/server-lib $(TMP)/
