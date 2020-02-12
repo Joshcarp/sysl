@@ -14,11 +14,16 @@ func NewDefaultSimpleImpl() *DefaultSimpleImpl {
 	return &DefaultSimpleImpl{}
 }
 
+// GetFoobarList Client
+type GetFoobarListClient struct {
+}
+
 // GetStuffList Client
 type GetStuffListClient struct {
 }
 
 // ServiceInterface for Simple
 type ServiceInterface struct {
-	GetStuffList func(ctx context.Context, req *GetStuffListRequest, client GetStuffListClient) (*Stuff, error)
+	GetFoobarList func(ctx context.Context, req *GetFoobarListRequest, client GetFoobarListClient) (*Foo, error)
+	GetStuffList  func(ctx context.Context, req *GetStuffListRequest, client GetStuffListClient) (*Stuff, error)
 }

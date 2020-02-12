@@ -14,13 +14,27 @@ var _ = time.Parse
 // Reference imports to suppress unused errors
 var _ = date.Parse
 
+// Foo ...
+type Foo struct {
+	Content int64 `json:"Content"`
+}
+
 // Stuff ...
 type Stuff struct {
 	Content string `json:"Content"`
 }
 
+// GetFoobarListRequest ...
+type GetFoobarListRequest struct {
+}
+
 // GetStuffListRequest ...
 type GetStuffListRequest struct {
+}
+
+// *Foo validator
+func (s *Foo) Validate() error {
+	return validator.Validate(s)
 }
 
 // *Stuff validator

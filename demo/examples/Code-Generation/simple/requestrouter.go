@@ -41,6 +41,7 @@ func NewServiceRouter(gc GenCallback, svcHandler *ServiceHandler) handlerinitial
 func (s *ServiceRouter) WireRoutes(ctx context.Context, r chi.Router) {
 	r.Route(s.gc.BasePath(), func(r chi.Router) {
 		s.gc.AddMiddleware(ctx, r)
+		r.Get("/foobar", s.svcHandler.GetFoobarListHandler)
 		r.Get("/stuff", s.svcHandler.GetStuffListHandler)
 	})
 }

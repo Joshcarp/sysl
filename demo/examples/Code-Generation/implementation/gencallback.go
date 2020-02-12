@@ -52,7 +52,8 @@ func (g Callback) DownstreamTimeoutContext(ctx context.Context) (context.Context
 func LoadServices(ctx context.Context) error {
 	router := chi.NewRouter()
 	simpleServiceInterface := simple.ServiceInterface{
-		GetStuffList: GetStuffList,
+		GetStuffList:  GetStuffList,
+		GetFoobarList: GetFoobarList,
 	}
 
 	genCallbacks := Callback{

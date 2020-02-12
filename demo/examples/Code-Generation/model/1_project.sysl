@@ -7,4 +7,9 @@ Simple[package="simple"]:
 
     !type Stuff:
         Content <: string:
-            @json_tag = "Content"
+            @json_tag = "Content"  
+    !type Foo:
+        Content <: int
+    /foobar:
+        GET:
+            return no <: Foo
