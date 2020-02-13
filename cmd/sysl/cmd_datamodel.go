@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"regexp"
 	"strings"
 
@@ -10,6 +9,39 @@ import (
 	sysl "github.com/anz-bank/sysl/pkg/sysl"
 	"github.com/sirupsen/logrus"
 )
+
+// This is for generating data models when the project isn't defined
+func GenerateDataModelsView(datagenParams *CmdContextParamDatagen,
+	model *sysl.Module, logger *logrus.Logger) (map[string]string, error) {
+	outmap := make(map[string]string)
+
+	logger.Debugf("title: %s\n", datagenParams.title)
+	logger.Debugf("output: %s\n", datagenParams.output)
+
+	spclass := constructFormatParser("", datagenParams.classFormat)
+
+	apps := model.GetApps()
+	for appName := range apps {
+		app := apps[appName]
+		outputDir := datagenParams.output
+		if strings.Contains(outputDir, "%(appname)") {
+			of := MakeFormatParser(datagenParams.output)
+			outputDir = of.FmtOutput(appName, "", app.GetLongName(), app.GetAttrs())
+		}
+		var stringBuilder strings.Builder
+		if app != nil {
+			dataParam := &DataModelParam{
+				mod:   model,
+				app:   app,
+				title: datagenParams.title,
+			}
+			v := MakeDataModelView(spclass, dataParam.mod, &stringBuilder, dataParam.title, "")
+			outmap[outputDir] = v.GenerateDataView(dataParam)
+		}
+	}
+
+	return outmap, nil
+}
 
 func GenerateDataModels(datagenParams *CmdContextParamDatagen,
 	model *sysl.Module, logger *logrus.Logger) (map[string]string, error) {
@@ -26,7 +58,7 @@ func GenerateDataModels(datagenParams *CmdContextParamDatagen,
 	var app *sysl.Application
 	var exists bool
 	if app, exists = model.GetApps()[datagenParams.project]; !exists {
-		return nil, fmt.Errorf("project not found in sysl")
+		return GenerateDataModelsView(datagenParams, model, logger)
 	}
 
 	// Iterate over each endpoint within the selected project
