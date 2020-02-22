@@ -6,4 +6,5 @@ const (
 	ModeXSD     = "xsd"
 	ModeGrammar = "grammar"
 	ModeAuto    = "auto"
+	ModeProto   = "proto"
 )

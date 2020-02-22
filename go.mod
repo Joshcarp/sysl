@@ -16,6 +16,7 @@ require (
 	github.com/cornelk/hashmap v1.0.1
 	github.com/dchest/siphash v1.2.1 // indirect
 	github.com/dlclark/regexp2 v1.2.0 // indirect
+	github.com/emicklei/proto v1.9.0
 	github.com/getkin/kin-openapi v0.2.1-0.20191216082429-70fbea30aeb8
 	github.com/ghodss/yaml v1.0.0
 	github.com/go-openapi/jsonreference v0.19.3 // indirect

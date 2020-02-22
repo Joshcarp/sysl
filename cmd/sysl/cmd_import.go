@@ -22,7 +22,7 @@ func (p *importCmd) Name() string       { return "import" }
 func (p *importCmd) MaxSyslModule() int { return 0 }
 
 func (p *importCmd) Configure(app *kingpin.Application) *kingpin.CmdClause {
-	opts := []string{importer.ModeGrammar, importer.ModeSwagger, importer.ModeXSD, importer.ModeOpenAPI}
+	opts := []string{importer.ModeGrammar, importer.ModeSwagger, importer.ModeXSD, importer.ModeOpenAPI, importer.ModeProto}
 	sort.Strings(opts)
 	optsText := strings.Join(opts, ", ")
 	opts = append(opts, importer.ModeAuto)
@@ -69,6 +69,9 @@ func (p *importCmd) Execute(args ExecuteArgs) error {
 	case importer.ModeOpenAPI:
 		args.Logger.Infof("Using OpenAPI importer\n")
 		imp = importer.LoadOpenAPIText
+	case importer.ModeProto:
+		args.Logger.Infof("Using Proto importer\n")
+		imp = importer.LoadProtoText
 	default:
 		args.Logger.Fatalf("Unsupported input format: %s\n", p.Mode)
 	}
