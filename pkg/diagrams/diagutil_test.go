@@ -124,7 +124,7 @@ func TestWrongHttpRequest(t *testing.T) {
 	url := "ww.plantuml.co"
 
 	//When
-	out, err := sendHTTPRequest(url)
+	out, err := SendHTTPRequest(url)
 
 	//Then
 	assert.Nil(t, out)

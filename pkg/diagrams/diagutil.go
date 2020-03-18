@@ -24,7 +24,7 @@ func OutputPlantuml(output, plantuml, umlInput string, fs afero.Fs) error {
 			return err
 		}
 		plantuml = fmt.Sprintf("%s/%s/%s", plantuml, mode, encoded)
-		out, err := sendHTTPRequest(plantuml)
+		out, err := SendHTTPRequest(plantuml)
 		if err != nil {
 			return err
 		}
@@ -40,7 +40,7 @@ func OutputPlantuml(output, plantuml, umlInput string, fs afero.Fs) error {
 	}
 }
 
-func sendHTTPRequest(url string) ([]byte, error) {
+func SendHTTPRequest(url string) ([]byte, error) {
 	resp, err := http.Get(url) //nolint:gosec
 	if err != nil {
 		return nil, errors.Errorf("Unable to create http request to %s, Error:%s", url, err.Error())
